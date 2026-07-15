@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:e_commerece_app/core/api_service.dart';
 import 'package:e_commerece_app/features/auth/data/auth_repo/auth_repo_implement.dart';
 import 'package:e_commerece_app/features/auth/presentation/view_model/signup_cubit/signup_cubit.dart';
+import 'package:e_commerece_app/features/auth/presentation/views/signin_view.dart';
 import 'package:e_commerece_app/features/auth/presentation/views/signup_view.dart';
 import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
@@ -34,15 +35,12 @@ class AppRouting {
       //     return const HomeView();
       //   },
       // ),
-      // GoRoute(
-      //   path: signInPath,
-      //   builder: (BuildContext context, GoRouterState state) {
-      //     return BlocProvider(
-      //       create: (context) => SignInCubit(),
-      //       child: const SigninView(),
-      //     );
-      //   },
-      // ),
+      GoRoute(
+        path: signInPath,
+        builder: (BuildContext context, GoRouterState state) {
+          return const SigninView();
+        },
+      ),
       GoRoute(
         path: "/",
         builder: (context, state) {

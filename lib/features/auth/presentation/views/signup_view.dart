@@ -1,7 +1,9 @@
 import 'dart:developer';
 
+import 'package:e_commerece_app/core/functions/app_navigator.dart';
 import 'package:e_commerece_app/core/utils/app_assets.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
+import 'package:e_commerece_app/core/utils/app_routing.dart';
 import 'package:e_commerece_app/core/utils/app_styles.dart';
 import 'package:e_commerece_app/core/widgets/custom_btn.dart';
 import 'package:e_commerece_app/features/auth/presentation/view_model/signup_cubit/signup_cubit.dart';
@@ -26,14 +28,35 @@ class SignupView extends StatelessWidget {
           child: BlocConsumer<SignupCubit, SignupState>(
             listener: (context, state) {
               if (state is SignupFailure) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    backgroundColor: Colors.red,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadiusGeometry.circular(16),
+                    ),
+                    duration: Duration(seconds: 2),
+                    content: Text(state.errMessage),
+                  ),
+                );
                 log(state.errMessage);
               } else if (state is SignupSuccess) {
-                log("تم بنجاج");
-              }
-              else{
-
-                                log("loading...");
-
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    backgroundColor: Colors.green,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadiusGeometry.circular(16),
+                    ),
+                    duration: Duration(microseconds: 2),
+                    content: Text("Success"),
+                  ),
+                );
+                BlocProvider.of<SignupCubit>(context).dispose();
+                AppNavigator.pushReplacement(
+                  context: context,
+                  path: AppRouting.signInPath,
+                );
               }
             },
             builder: (context, state) {

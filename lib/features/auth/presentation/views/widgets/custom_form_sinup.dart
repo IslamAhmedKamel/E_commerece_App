@@ -5,19 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 
-class CustomFormSinup extends StatefulWidget {
+class CustomFormSinup extends StatelessWidget {
   const CustomFormSinup({super.key});
-
-  @override
-  State<CustomFormSinup> createState() => _CustomFormSinupState();
-}
-
-class _CustomFormSinupState extends State<CustomFormSinup> {
-  @override
-  void dispose() {
-    BlocProvider.of<SignupCubit>(context).dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

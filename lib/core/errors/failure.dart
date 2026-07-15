@@ -10,6 +10,8 @@ class ServerFailure extends Failure {
   ServerFailure({required super.errorMessage});
   factory ServerFailure.fromDioEx(DioException dioEx) {
     switch (dioEx.type) {
+      case DioExceptionType.badResponse:
+        return ServerFailure.fromBadResponse(json: dioEx.response);
       case DioExceptionType.connectionTimeout:
         return ServerFailure(errorMessage: "connectionTimeout");
       case DioExceptionType.sendTimeout:
@@ -17,12 +19,12 @@ class ServerFailure extends Failure {
         return ServerFailure(errorMessage: "connectionTimeout");
       case DioExceptionType.badCertificate:
         return ServerFailure(errorMessage: "connectionTimeout");
-      case DioExceptionType.badResponse:
-        return ServerFailure.fromBadResponse(json: dioEx.response!.data);
       case DioExceptionType.cancel:
         return ServerFailure(errorMessage: "connectionTimeout");
       case DioExceptionType.connectionError:
-        return ServerFailure(errorMessage: "connectionTimeout");
+        return ServerFailure(
+          errorMessage: "No Internet Connection ,please try later",
+        );
       case DioExceptionType.unknown:
         return ServerFailure(errorMessage: "connectionTimeout");
 
@@ -31,14 +33,14 @@ class ServerFailure extends Failure {
     }
   }
 
-  factory ServerFailure.fromBadResponse({required Map<String, dynamic> json}) {
-    if (json["status"] == 400 ||
-        json["status"] == 401 ||
-        json["status"] == 403) {
-      return ServerFailure(errorMessage: json["errorMessage"]);
-    } else if (json["status"] == 500) {
+  factory ServerFailure.fromBadResponse({Response<dynamic>? json}) {
+    if (json!.statusCode == 400 ||
+        json.statusCode == 401 ||
+        json.statusCode == 409) {
+      return ServerFailure(errorMessage: json.data["message"]);
+    } else if (json.statusCode == 500) {
       return ServerFailure(errorMessage: "فيه مشكلة في السرفير");
-    } else if (json["status"] == 404) {
+    } else if (json.statusCode == 404) {
       return ServerFailure(errorMessage: "الصفحة غير موجودة");
     } else {
       return ServerFailure(errorMessage: "there was an errorerrorerror");
