@@ -1,5 +1,10 @@
 class AppAssets {
   static const String logo = "assets/images/logo.svg";
+  static const String registerIcon = "assets/images/register_icon.svg";
+  static const String googleIcon = "assets/images/google.png";
+  static const String facebookIcon = "assets/images/facebook.png";
+  static const String appleIcon = "assets/images/apple.png";
+  static const String passwordIcon = "assets/images/password.svg";
   static const String onboarding1 = "assets/images/onboarding1.png";
   static const String onboarding2 = "assets/images/onboarding2.png";
   static const String onboarding3 = "assets/images/onboarding3.png";

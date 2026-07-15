@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:e_commerece_app/core/functions/app_navigator.dart';
 import 'package:e_commerece_app/core/utils/app_assets.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
 import 'package:e_commerece_app/core/utils/app_constatn.dart';
@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -23,7 +22,10 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 4), () {
-      GoRouter.of(context).pushReplacement(AppRouting.onBoardingPath);
+      AppNavigator.pushReplacement(
+        context: context,
+        path: AppRouting.onBoardingPath,
+      );
     });
   }
 
@@ -43,7 +45,8 @@ class _SplashViewState extends State<SplashView> {
                 "Stylish",
                 style: AppStyles.style40.copyWith(
                   fontFamily: AppConstatn.secondFont,
-                  color: AppColors.primColor),
+                  color: AppColors.primColor,
+                ),
               ),
             ],
           ),

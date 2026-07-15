@@ -1,11 +1,9 @@
+import 'package:e_commerece_app/features/auth/presentation/views/signup_view.dart';
 import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/onboarding_view.dart';
-import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouting {
-  
-
   static const onBoardingPath = '/OnBoardingView';
   static const signInPath = '/signInPath';
   static const sinUpPath = '/sinUpPath';
@@ -16,7 +14,7 @@ class AppRouting {
       GoRoute(
         path: '/',
         builder: (BuildContext context, GoRouterState state) {
-          return const SplashView();
+          return const SignupView();
         },
       ),
       GoRoute(
@@ -40,15 +38,15 @@ class AppRouting {
       //     );
       //   },
       // ),
-      // GoRoute(
-      //   path: sinUpPath,
-      //   builder: (BuildContext context, GoRouterState state) {
-      //     return BlocProvider(
-      //       create: (context) => SignUpCubit(),
-      //       child: const SignUpView(),
-      //     );
-      //   },
-      // ),
+      GoRoute(
+        path: sinUpPath,
+        builder: (context, state) {
+          return SignupView();
+        },
+
+        
+      ),
+
       // GoRoute(
       //   path: forgotPath,
       //   builder: (BuildContext context, GoRouterState state) {
@@ -58,10 +56,6 @@ class AppRouting {
       //     );
       //   },
       // ),
-    
-    
-    
-    
     ],
   );
 }

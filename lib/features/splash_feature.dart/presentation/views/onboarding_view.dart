@@ -1,4 +1,6 @@
+import 'package:e_commerece_app/core/functions/app_navigator.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
+import 'package:e_commerece_app/core/utils/app_routing.dart';
 import 'package:e_commerece_app/core/utils/app_styles.dart';
 import 'package:e_commerece_app/features/splash_feature.dart/data/onboarding_model.dart';
 import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/widgets/custom_ink_text_onboarding.dart';
@@ -32,9 +34,8 @@ class _OnboardingViewState extends State<OnboardingView> {
       top: true,
       bottom: true,
       child: Scaffold(
-        // backgroundColor: AppColors.whiteColor,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -49,6 +50,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                   onboardingList: onboardingList,
                 ),
               ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -77,19 +79,30 @@ class _OnboardingViewState extends State<OnboardingView> {
                       dotHeight: 10.h,
                     ),
                   ),
-                  CustomInkTextOnboarding(
-                    text: 'Next',
-                    onTap: () {
-                      setState(() {
-                        _controller.nextPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.bounceIn,
-                        );
-                        currentPage++;
-                      });
-                    },
-                    color: AppColors.primColor,
-                  ),
+                  currentPage == onboardingList.length - 1
+                      ? CustomInkTextOnboarding(
+                          text: 'Create Account',
+                          onTap: () {
+                            AppNavigator.pushReplacement(
+                              context: context,
+                              path: AppRouting.sinUpPath,
+                            );
+                          },
+                          color: AppColors.primColor,
+                        )
+                      : CustomInkTextOnboarding(
+                          text: 'Next',
+                          onTap: () {
+                            setState(() {
+                              _controller.nextPage(
+                                duration: Duration(milliseconds: 300),
+                                curve: Curves.bounceIn,
+                              );
+                              currentPage++;
+                            });
+                          },
+                          color: AppColors.primColor,
+                        ),
                 ],
               ),
             ],
