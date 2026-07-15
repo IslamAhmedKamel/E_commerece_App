@@ -1,0 +1,8 @@
+import 'package:dartz/dartz.dart';
+import 'package:e_commerece_app/core/errors/failure.dart';
+import 'package:e_commerece_app/features/auth/data/models/signup_request_model.dart';
+import 'package:e_commerece_app/features/auth/data/models/signup_response_model.dart';
+
+abstract class AuthRepo {
+  Future<Either<Failure, UserModel>> signup({required SignUpModel signUpData });
+}
