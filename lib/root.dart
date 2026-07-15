@@ -1,3 +1,4 @@
+import 'package:e_commerece_app/core/utils/app_constatn.dart';
 import 'package:e_commerece_app/core/utils/app_routing.dart';
 import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -8,12 +9,18 @@ class EcommereceApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // var width = MediaQuery.of(context).size.width;
+    // var height = MediaQuery.of(context).size.height;
     return ScreenUtilPlusInit(
-      designSize: const Size(390, 844),
+      designSize: const Size(375, 812),
       autoRebuild: false, // 🎯 NEW: Disable automatic tree-wide rebuilds
       builder: (context, child) {
         return MaterialApp.router(
+          
           debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              fontFamily: AppConstatn.primFont
+            ),
           routerConfig: AppRouting.router,
         );
       },
