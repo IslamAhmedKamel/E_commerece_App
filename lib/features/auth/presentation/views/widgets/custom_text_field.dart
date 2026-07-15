@@ -5,17 +5,32 @@ import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, required this.hintText, this.suffixIcon, this.prefixIcon, this.keyboardType});
+  const CustomTextField({
+    super.key,
+    required this.hintText,
+    this.suffixIcon,
+    this.prefixIcon,
+    this.keyboardType,
+    this.validator,
+    this.controller,
+    this.obscureText = false,
+  });
+  final TextEditingController? controller;
   final String hintText;
+  final bool obscureText;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
+  final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      obscureText: obscureText,
+      controller: controller,
+      validator: validator,
       keyboardType: keyboardType,
       decoration: InputDecoration(
-        
         hintText: hintText,
         hintStyle: AppStyles.style12,
         fillColor: Color(0XFFF3F3F3),
