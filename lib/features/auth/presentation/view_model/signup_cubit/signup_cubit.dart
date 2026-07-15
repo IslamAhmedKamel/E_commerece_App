@@ -15,7 +15,10 @@ class SignupCubit extends Cubit<SignupState> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController rePasswordController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
-  bool isPasswordShow = false;
+
+  // ✅ متغيرين منفصلين لإظهار/إخفاء كلمة المرور
+  bool isPasswordVisible = false;
+  bool isConfirmPasswordVisible = false;
   void signUp() async {
     if (!formKey.currentState!.validate()) return;
 
@@ -33,39 +36,45 @@ class SignupCubit extends Cubit<SignupState> {
         emit(SignupFailure(errMessage: fail.errorMessage));
       },
       (success) {
+        reset();
         log(success.token);
         emit(SignupSuccess());
       },
     );
   }
 
-  // تبديل إظهار/إخفاء كلمة المرور
   void togglePasswordVisibility() {
-    isPasswordShow = !isPasswordShow;
-    emit(SignupIsPasswordVisible(isPasswordShow));
+    isPasswordVisible = !isPasswordVisible;
+    emit(SignupPasswordVisibilityChanged()); // إعادة البناء
+  }
+
+  // ✅ دالة منفصلة لتأكيد كلمة المرور
+  void toggleConfirmPasswordVisibility() {
+    isConfirmPasswordVisible = !isConfirmPasswordVisible;
+    emit(SignupPasswordVisibilityChanged()); // إعادة البناء
+  }
+
+  void reset() {
+    isPasswordVisible = false;
+    isConfirmPasswordVisible = false;
+    formKey.currentState?.reset();
+    nameController.clear();
+    emailController.clear();
+    passwordController.clear();
+    rePasswordController.clear();
+    phoneController.clear();
+    emit(SignupInitial());
+  }
+
+  // تنظيف الموارد
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    rePasswordController.dispose();
+    phoneController.dispose();
   }
 
 
+
 }
-
-
-//  void clearForm() {
-//     _usernameController.clear();
-//     _emailController.clear();
-//     _passwordController.clear();
-//     _confirmPasswordController.clear();
-//     _mobileController.clear();
-//     _formKey.currentState?.reset();
-//   }
-
-//   @override
-//   void dispose() {
-//     _usernameController.dispose();
-//     _emailController.dispose();
-//     _passwordController.dispose();
-//     _confirmPasswordController.dispose();
-//     _mobileController.dispose();
-//     super.dispose();
-//   }
-
-

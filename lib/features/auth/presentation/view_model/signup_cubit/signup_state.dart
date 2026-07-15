@@ -7,10 +7,7 @@ final class SignupInitial extends SignupState {}
 
 final class SignupLoading extends SignupState {}
 
-class SignupIsPasswordVisible extends SignupState {
-  final bool isPasswordVisible;
-  SignupIsPasswordVisible(this.isPasswordVisible);
-}
+class SignupPasswordVisibilityChanged extends SignupState {}
 
 final class SignupFailure extends SignupState {
   final String errMessage;

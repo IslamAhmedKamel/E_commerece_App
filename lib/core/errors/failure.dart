@@ -41,7 +41,7 @@ class ServerFailure extends Failure {
     } else if (json["status"] == 404) {
       return ServerFailure(errorMessage: "الصفحة غير موجودة");
     } else {
-      return ServerFailure(errorMessage: "there was an error");
+      return ServerFailure(errorMessage: "there was an errorerrorerror");
     }
   }
 }

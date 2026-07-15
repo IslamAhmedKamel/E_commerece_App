@@ -16,12 +16,12 @@ class AppRouting {
   static const homePath = '/homePath';
   static GoRouter router = GoRouter(
     routes: <RouteBase>[
-      GoRoute(
-        path: '/',
-        builder: (BuildContext context, GoRouterState state) {
-          return const SignupView();
-        },
-      ),
+      // GoRoute(
+      //   path: '/',
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     return const SplashView();
+      //   },
+      // ),
       GoRoute(
         path: onBoardingPath,
         builder: (BuildContext context, GoRouterState state) {
@@ -44,7 +44,7 @@ class AppRouting {
       //   },
       // ),
       GoRoute(
-        path: sinUpPath,
+        path: "/",
         builder: (context, state) {
           return BlocProvider(
             create: (context) => SignupCubit(

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:e_commerece_app/core/utils/app_assets.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
 import 'package:e_commerece_app/core/utils/app_styles.dart';
@@ -16,12 +18,23 @@ class SignupView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var signUp = context.watch<SignupCubit>();
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.r),
         child: SingleChildScrollView(
           child: BlocConsumer<SignupCubit, SignupState>(
             listener: (context, state) {
+              if (state is SignupFailure) {
+                log(state.errMessage);
+              } else if (state is SignupSuccess) {
+                log("تم بنجاج");
+              }
+              else{
+
+                                log("loading...");
+
+              }
             },
             builder: (context, state) {
               return Column(
@@ -32,9 +45,22 @@ class SignupView extends StatelessWidget {
                   CustomFormSinup(),
                   Gap(16),
                   CustomRichText(),
-                  Gap(16),
-                  CustomBtn(text: "Create Account"),
-                  Gap(16),
+                  Gap(12),
+                  state is SignupLoading
+                      ? SizedBox(
+                          height: 54.h,
+                          child: Center(
+                            child: CircularProgressIndicator(
+                              color: AppColors.primColor,
+                            ),
+                          ),
+                        )
+                      : CustomBtn(
+                          text: 'Sign Up',
+                          onTap: () {
+                            signUp.signUp();
+                          },
+                        ),
                   Text(
                     "- OR Continue with -",
                     style: AppStyles.style12.copyWith(
@@ -44,7 +70,6 @@ class SignupView extends StatelessWidget {
                   Gap(12),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-
                     children: [
                       CustomSocialContainer(imagePath: AppAssets.googleIcon),
                       Gap(8),

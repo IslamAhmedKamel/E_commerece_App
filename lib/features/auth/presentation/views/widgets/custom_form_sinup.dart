@@ -5,11 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 
-class CustomFormSinup extends StatelessWidget {
+class CustomFormSinup extends StatefulWidget {
   const CustomFormSinup({super.key});
+
+  @override
+  State<CustomFormSinup> createState() => _CustomFormSinupState();
+}
+
+class _CustomFormSinupState extends State<CustomFormSinup> {
+  @override
+  void dispose() {
+    BlocProvider.of<SignupCubit>(context).dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    var signUp = context.read<SignupCubit>();
+    var signUp = context.watch<SignupCubit>();
     return Form(
       key: signUp.formKey,
       child: Column(
@@ -63,16 +75,16 @@ class CustomFormSinup extends StatelessWidget {
           CustomTextField(
             controller: signUp.passwordController,
             hintText: "Password",
-            obscureText: signUp.isPasswordShow,
+            obscureText: !signUp.isPasswordVisible,
             prefixIcon: const Icon(Icons.lock),
             suffixIcon: IconButton(
               icon: Icon(
-                signUp.isPasswordShow ? Icons.visibility_off : Icons.visibility,
+                signUp.isPasswordVisible
+                    ? Icons.visibility_off
+                    : Icons.visibility,
               ),
-             
-              onPressed: () {
-                signUp.togglePasswordVisibility();
-              },
+              onPressed: signUp.togglePasswordVisibility, // ✅ دالة منفصلة
+
               color: AppColors.greyHintTextFormColor,
             ),
             validator: (value) {
@@ -110,15 +122,17 @@ class CustomFormSinup extends StatelessWidget {
           CustomTextField(
             controller: signUp.rePasswordController,
             hintText: "Confirm Password",
-            obscureText: signUp.isPasswordShow,
+            obscureText: !signUp.isConfirmPasswordVisible, // ✅ متغير منفصل
             prefixIcon: const Icon(Icons.lock_outline),
             suffixIcon: IconButton(
               icon: Icon(
-                signUp.isPasswordShow ? Icons.visibility_off : Icons.visibility,
+                signUp.isConfirmPasswordVisible
+                    ? Icons.visibility_off
+                    : Icons.visibility,
               ),
-              onPressed: () {
-                signUp.togglePasswordVisibility();
-              },
+              onPressed:
+                  signUp.toggleConfirmPasswordVisibility, // ✅ دالة منفصلة
+
               color: AppColors.greyHintTextFormColor,
             ),
             validator: (value) {
@@ -132,7 +146,6 @@ class CustomFormSinup extends StatelessWidget {
             },
           ),
           const Gap(16),
-
           // حقل رقم الهاتف
           CustomTextField(
             controller: signUp.phoneController,
@@ -149,32 +162,6 @@ class CustomFormSinup extends StatelessWidget {
               }
               return null;
             },
-          ),
-          const Gap(24),
-
-          // زر التسجيل
-          SizedBox(
-            width: double.infinity,
-            height: 50,
-            child: ElevatedButton(
-              onPressed: () {
-                signUp.signUp();
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-              child: const Text(
-                'Sign Up',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ),
           ),
         ],
       ),
