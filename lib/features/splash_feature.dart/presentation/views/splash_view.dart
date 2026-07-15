@@ -2,9 +2,13 @@ import 'dart:async';
 
 import 'package:e_commerece_app/core/utils/app_assets.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
+import 'package:e_commerece_app/core/utils/app_constatn.dart';
 import 'package:e_commerece_app/core/utils/app_routing.dart';
+import 'package:e_commerece_app/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashView extends StatefulWidget {
@@ -18,7 +22,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 2), () {
+    Timer(Duration(seconds: 4), () {
       GoRouter.of(context).pushReplacement(AppRouting.onBoardingPath);
     });
   }
@@ -26,33 +30,23 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: Colors.white,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Stack(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                AppAssets.splashlinesimage,
-                width: double.infinity,
-                // height: 627,
-              ),
-              Positioned(
-                bottom: 0,
-                right: 0,
-                left: 0,
-                child: Image.asset(
-                  AppAssets.splashlogo,
-                  width: 133,
-                  height: 133,
-                ),
+              SvgPicture.asset(AppAssets.logo, width: 124.r),
+              Gap(9),
+              Text(
+                "Stylish",
+                style: AppStyles.style40.copyWith(
+                  fontFamily: AppConstatn.secondFont,
+                  color: AppColors.primColor),
               ),
             ],
           ),
-          Gap(120),
-
-          CircularProgressIndicator(color: Color(0xffB3B3B3)),
-          Gap(66),
         ],
       ),
     );
