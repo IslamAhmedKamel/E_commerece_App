@@ -50,14 +50,12 @@ class SigninView extends StatelessWidget {
                       content: Text(state.userModel.message),
                     ),
                   );
-                 
                   AppNavigator.pushReplacement(
                     context: context,
                     path: AppRouting.onBoardingPath,
                   );
                 }
               },
-
               builder: (context, state) {
                 var signin = context.read<SigninCubit>();
                 return Column(

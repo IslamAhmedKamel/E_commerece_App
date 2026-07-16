@@ -1,5 +1,7 @@
 import 'package:e_commerece_app/core/functions/app_navigator.dart';
+import 'package:e_commerece_app/core/share.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
+import 'package:e_commerece_app/core/utils/app_constatn.dart';
 import 'package:e_commerece_app/core/utils/app_routing.dart';
 import 'package:e_commerece_app/core/utils/app_styles.dart';
 import 'package:e_commerece_app/features/splash_feature.dart/data/onboarding_model.dart';
@@ -39,10 +41,22 @@ class _OnboardingViewState extends State<OnboardingView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                "Skip",
-                textAlign: TextAlign.right,
-                style: AppStyles.style18,
+              GestureDetector(
+                onTap: () {
+                  CacheHelper.saveData(
+                    key: AppConstatn.isVisitedOnboarding,
+                    value: true,
+                  );
+                  AppNavigator.pushReplacement(
+                    context: context,
+                    path: AppRouting.sinUpPath,
+                  );
+                },
+                child: Text(
+                  "Skip",
+                  textAlign: TextAlign.right,
+                  style: AppStyles.style18,
+                ),
               ),
               Expanded(
                 child: OnboardingBody(

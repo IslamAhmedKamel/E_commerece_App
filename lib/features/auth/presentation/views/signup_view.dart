@@ -30,7 +30,6 @@ class SignupView extends StatelessWidget {
               if (state is SignupFailure) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    margin: EdgeInsets.symmetric(horizontal: 8),
                     backgroundColor: Colors.red,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadiusGeometry.circular(16),
@@ -43,25 +42,21 @@ class SignupView extends StatelessWidget {
               } else if (state is SignupSuccess) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    margin: EdgeInsets.symmetric(horizontal: 8),
                     backgroundColor: Colors.green,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadiusGeometry.circular(16),
                     ),
-                    duration: Duration(microseconds: 2),
-                    content: Text(state.userModel.message),
+                    duration: Duration(microseconds: 300),
+                    content: Text(state.userModel.token),
                   ),
                 );
-                BlocProvider.of<SignupCubit>(context).dispose();
                 AppNavigator.pushReplacement(
                   context: context,
                   path: AppRouting.signInPath,
                 );
               }
             },
-           
-           
-           
+
             builder: (context, state) {
               return Column(
                 children: [
