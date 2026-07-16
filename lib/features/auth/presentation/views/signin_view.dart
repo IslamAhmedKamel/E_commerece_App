@@ -38,7 +38,6 @@ class SigninView extends StatelessWidget {
                       content: Text(state.errMessage),
                     ),
                   );
-                  log(state.errMessage);
                 } else if (state is SigninSuccess) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
@@ -52,10 +51,13 @@ class SigninView extends StatelessWidget {
                   );
                   AppNavigator.pushReplacement(
                     context: context,
-                    path: AppRouting.onBoardingPath,
+                    path: AppRouting.homePath,
                   );
                 }
               },
+            
+            
+            
               builder: (context, state) {
                 var signin = context.read<SigninCubit>();
                 return Column(

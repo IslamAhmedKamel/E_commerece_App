@@ -4,6 +4,7 @@ class AppConstatn {
   static String baseUrl = 'https://ecommerce.routemisr.com/';
   static String signIn = "api/v1/auth/signin";
   static String signUp = "api/v1/auth/signup";
+  static String forgotPassword = "api/v1/auth/forgotPasswords";
   static String isVisitedOnboarding = "isVisitedOnboarding";
   static String tokenKey = "token";
 }
