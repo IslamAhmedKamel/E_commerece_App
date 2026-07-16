@@ -1,5 +1,7 @@
 import 'dart:async';
+
 import 'package:e_commerece_app/core/functions/app_navigator.dart';
+import 'package:e_commerece_app/core/share.dart';
 import 'package:e_commerece_app/core/utils/app_assets.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
 import 'package:e_commerece_app/core/utils/app_constatn.dart';
@@ -21,11 +23,22 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
+    bool? isVisited = CacheHelper.getDataBool(
+      key: AppConstatn.isVisitedOnboarding,
+    );
     Timer(Duration(seconds: 4), () {
-      AppNavigator.pushReplacement(
-        context: context,
-        path: AppRouting.onBoardingPath,
-      );
+      // ✅ استخدم getDataBool
+      if (isVisited == true) {
+        AppNavigator.pushReplacement(
+          context: context,
+          path: AppRouting.sinUpPath,
+        );
+      } else {
+        AppNavigator.pushReplacement(
+          context: context,
+          path: AppRouting.onBoardingPath,
+        );
+      }
     });
   }
 

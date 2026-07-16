@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:e_commerece_app/core/share.dart';
+import 'package:e_commerece_app/core/utils/app_constatn.dart';
 import 'package:e_commerece_app/features/auth/data/auth_repo/auth_repo.dart';
 import 'package:e_commerece_app/features/auth/data/models/auth_response_model.dart';
 import 'package:e_commerece_app/features/auth/data/models/signup_request_model.dart';
@@ -37,8 +39,9 @@ class SignupCubit extends Cubit<SignupState> {
       },
       (success) {
         reset();
-        log(success.token);
         emit(SignupSuccess(userModel: success));
+        CacheHelper.saveData(key: AppConstatn.tokenKey, value: success.token);
+        log("tokeeen ${CacheHelper.getData(key: AppConstatn.tokenKey)}");
       },
     );
   }
@@ -74,6 +77,4 @@ class SignupCubit extends Cubit<SignupState> {
     rePasswordController.dispose();
     phoneController.dispose();
   }
-
-
 }
