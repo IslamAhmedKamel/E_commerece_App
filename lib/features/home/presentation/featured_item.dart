@@ -10,24 +10,27 @@ class FeaturedItem extends StatelessWidget {
   final String image;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.r),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 56.w,
-            height: 56.h,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50.r),
-              image: DecorationImage(
-                image: AssetImage(AppAssets.homeimagetest),
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 8.r),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 56.w,
+              height: 56.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50.r),
+                image: DecorationImage(
+                  image: AssetImage(AppAssets.homeimagetest),
+                ),
               ),
             ),
-          ),
-          Gap(4.h),
-          Text(title, style: AppStyles.style10),
-        ],
+            Gap(4.h),
+            Text(title, style: AppStyles.style10),
+          ],
+        ),
       ),
     );
   }

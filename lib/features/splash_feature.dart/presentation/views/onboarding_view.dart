@@ -1,16 +1,13 @@
 import 'package:e_commerece_app/core/functions/app_navigator.dart';
-import 'package:e_commerece_app/core/share.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
-import 'package:e_commerece_app/core/utils/app_constatn.dart';
 import 'package:e_commerece_app/core/utils/app_routing.dart';
-import 'package:e_commerece_app/core/utils/app_styles.dart';
+import 'package:e_commerece_app/core/widgets/smooth_page_indicator.dart';
 import 'package:e_commerece_app/features/splash_feature.dart/data/onboarding_model.dart';
 import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/widgets/custom_ink_text_onboarding.dart';
 import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/widgets/onboarding_body.dart';
+import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/widgets/skip_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
-import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});
@@ -41,30 +38,11 @@ class _OnboardingViewState extends State<OnboardingView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              GestureDetector(
-                onTap: () {
-                  CacheHelper.saveData(
-                    key: AppConstatn.isVisitedOnboarding,
-                    value: true,
-                  );
-                  AppNavigator.pushReplacement(
-                    context: context,
-                    path: AppRouting.sinUpPath,
-                  );
-                },
-                child: Text(
-                  "Skip",
-                  textAlign: TextAlign.right,
-                  style: AppStyles.style18,
-                ),
+              SkipWidget(),
+              OnboardingBody(
+                pageController: _controller,
+                onboardingList: onboardingList,
               ),
-              Expanded(
-                child: OnboardingBody(
-                  pageController: _controller,
-                  onboardingList: onboardingList,
-                ),
-              ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -83,15 +61,10 @@ class _OnboardingViewState extends State<OnboardingView> {
                             });
                           },
                         ),
-                  SmoothPageIndicator(
-                    controller: _controller,
-                    count: 3,
-                    effect: WormEffect(
-                      dotColor: AppColors.doteDisappleColor,
-                      activeDotColor: Colors.black,
-                      dotWidth: 10.w,
-                      dotHeight: 10.h,
-                    ),
+
+                  CustomSmoothPageIndicator(
+                    count: onboardingList.length,
+                    pageController: _controller,
                   ),
                   currentPage == onboardingList.length - 1
                       ? CustomInkTextOnboarding(
