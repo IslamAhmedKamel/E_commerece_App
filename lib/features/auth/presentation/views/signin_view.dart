@@ -62,10 +62,7 @@ class SigninView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Gap(16),
-                    SizedBox(
-                      width: 185.w,
-                      child: Text("Welcome Back!", style: AppStyles.style36),
-                    ),
+                    Text("Welcome\nBack!", style: AppStyles.style36),
                     Gap(24.h),
                     CustomFormSignin(),
                     Gap(12.h),

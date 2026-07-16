@@ -56,12 +56,11 @@ class SignupView extends StatelessWidget {
                 );
               }
             },
-
             builder: (context, state) {
               return Column(
                 children: [
                   Gap(32),
-                  Text("Create an account", style: AppStyles.style36),
+                  Text("Create an\naccount", style: AppStyles.style36),
                   Gap(16),
                   CustomFormSinup(),
                   Gap(16),

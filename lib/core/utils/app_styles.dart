@@ -7,27 +7,27 @@ class AppStyles {
     fontWeight: FontWeight.bold,
   );
   static final style36 = TextStyle(
-    fontSize: 36.sp,
+    fontSize: 36.spMax,
     fontWeight: FontWeight.w700,
   );
   static final style18 = TextStyle(
-    fontSize: 18.sp,
+    fontSize: 18.spMax,
     fontWeight: FontWeight.w600,
   );
   static final style20 = TextStyle(
-    fontSize: 20.sp,
+    fontSize: 20.spMax,
     fontWeight: FontWeight.w500,
   );
   static final style12 = TextStyle(
-    fontSize: 12.sp,
+    fontSize: 12.spMax,
     fontWeight: FontWeight.w500,
   );
   static final style24 = TextStyle(
-    fontSize: 24.sp,
+    fontSize: 24.spMax,
     fontWeight: FontWeight.w800,
   );
   static final style14 = TextStyle(
-    fontSize: 14.sp,
+    fontSize: 14.spMax,
     fontWeight: FontWeight.w600,
   );
 }
