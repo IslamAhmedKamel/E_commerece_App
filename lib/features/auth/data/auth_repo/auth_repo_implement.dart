@@ -2,9 +2,11 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:e_commerece_app/core/api_service.dart';
 import 'package:e_commerece_app/core/errors/failure.dart';
+import 'package:e_commerece_app/core/utils/app_constatn.dart';
 import 'package:e_commerece_app/features/auth/data/auth_repo/auth_repo.dart';
+import 'package:e_commerece_app/features/auth/data/models/signin_request_model.dart';
 import 'package:e_commerece_app/features/auth/data/models/signup_request_model.dart';
-import 'package:e_commerece_app/features/auth/data/models/signup_response_model.dart';
+import 'package:e_commerece_app/features/auth/data/models/auth_response_model.dart';
 
 class AuthRepoImplement extends AuthRepo {
   final ApiService _apiService;
@@ -17,8 +19,27 @@ class AuthRepoImplement extends AuthRepo {
   }) async {
     try {
       var response = await _apiService.post(
-        endPoint: "api/v1/auth/signup",
+        endPoint: AppConstatn.signUp,
         data: signUpData.toJson(),
+      );
+      var user = UserModel.fromJson(response);
+      return right(user);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioEx(e));
+      }
+      return left(ServerFailure(errorMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserModel>> signin({
+    required SignInModel signinData,
+  }) async {
+    try {
+      var response = await _apiService.post(
+        endPoint: AppConstatn.signIn,
+        data: signinData.toJson(),
       );
       var user = UserModel.fromJson(response);
       return right(user);

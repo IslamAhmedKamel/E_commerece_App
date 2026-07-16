@@ -15,4 +15,8 @@ final class SignupFailure extends SignupState {
   SignupFailure({required this.errMessage});
 }
 
-final class SignupSuccess extends SignupState {}
+final class SignupSuccess extends SignupState {
+  final UserModel  userModel;
+
+  SignupSuccess({ required this.userModel});
+}

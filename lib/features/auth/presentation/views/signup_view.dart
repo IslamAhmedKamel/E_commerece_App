@@ -49,7 +49,7 @@ class SignupView extends StatelessWidget {
                       borderRadius: BorderRadiusGeometry.circular(16),
                     ),
                     duration: Duration(microseconds: 2),
-                    content: Text("Success"),
+                    content: Text(state.userModel.message),
                   ),
                 );
                 BlocProvider.of<SignupCubit>(context).dispose();
@@ -59,6 +59,9 @@ class SignupView extends StatelessWidget {
                 );
               }
             },
+           
+           
+           
             builder: (context, state) {
               return Column(
                 children: [

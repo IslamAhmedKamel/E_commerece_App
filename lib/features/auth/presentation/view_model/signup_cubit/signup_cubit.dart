@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:e_commerece_app/features/auth/data/auth_repo/auth_repo.dart';
+import 'package:e_commerece_app/features/auth/data/models/auth_response_model.dart';
 import 'package:e_commerece_app/features/auth/data/models/signup_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +22,6 @@ class SignupCubit extends Cubit<SignupState> {
   bool isConfirmPasswordVisible = false;
   void signUp() async {
     if (!formKey.currentState!.validate()) return;
-
     emit(SignupLoading());
     SignUpModel signUpData = SignUpModel(
       name: nameController.text,
@@ -38,7 +38,7 @@ class SignupCubit extends Cubit<SignupState> {
       (success) {
         reset();
         log(success.token);
-        emit(SignupSuccess());
+        emit(SignupSuccess(userModel: success));
       },
     );
   }
@@ -74,7 +74,6 @@ class SignupCubit extends Cubit<SignupState> {
     rePasswordController.dispose();
     phoneController.dispose();
   }
-
 
 
 }

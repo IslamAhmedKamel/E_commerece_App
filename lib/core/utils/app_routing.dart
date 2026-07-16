@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:e_commerece_app/core/api_service.dart';
 import 'package:e_commerece_app/features/auth/data/auth_repo/auth_repo_implement.dart';
+import 'package:e_commerece_app/features/auth/presentation/view_model/signin_cubit/signin_cubit.dart';
 import 'package:e_commerece_app/features/auth/presentation/view_model/signup_cubit/signup_cubit.dart';
 import 'package:e_commerece_app/features/auth/presentation/views/signin_view.dart';
 import 'package:e_commerece_app/features/auth/presentation/views/signup_view.dart';
@@ -36,13 +37,18 @@ class AppRouting {
       //   },
       // ),
       GoRoute(
-        path: signInPath,
+        path: "/",
         builder: (BuildContext context, GoRouterState state) {
-          return const SigninView();
+          return BlocProvider(
+            create: (context) => SigninCubit(
+              authRepo: AuthRepoImplement(apiService: ApiService(dio: Dio())),
+            ),
+            child: const SigninView(),
+          );
         },
       ),
       GoRoute(
-        path: "/",
+        path: sinUpPath,
         builder: (context, state) {
           return BlocProvider(
             create: (context) => SignupCubit(
