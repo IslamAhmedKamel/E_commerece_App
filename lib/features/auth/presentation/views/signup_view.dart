@@ -106,13 +106,20 @@ class SignupView extends StatelessWidget {
                         "I Already Have an Account ",
                         style: AppStyles.style14,
                       ),
-                      Text(
-                        "Login",
-
-                        style: AppStyles.style14.copyWith(
-                          decoration: TextDecoration.underline,
-                          decorationColor: AppColors.primColor,
-                          color: AppColors.primColor,
+                      GestureDetector(
+                        onTap: () {
+                          AppNavigator.push(
+                            context: context,
+                            path: AppRouting.signInPath,
+                          );
+                        },
+                        child: Text(
+                          "Login",
+                          style: AppStyles.style14.copyWith(
+                            decoration: TextDecoration.underline,
+                            decorationColor: AppColors.primColor,
+                            color: AppColors.primColor,
+                          ),
                         ),
                       ),
                     ],

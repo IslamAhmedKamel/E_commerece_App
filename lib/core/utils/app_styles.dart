@@ -22,6 +22,10 @@ class AppStyles {
     fontSize: 12.spMax,
     fontWeight: FontWeight.w500,
   );
+  static final style10 = TextStyle(
+    fontSize: 10.spMax,
+    fontWeight: FontWeight.w400,
+  );
   static final style24 = TextStyle(
     fontSize: 24.spMax,
     fontWeight: FontWeight.w800,

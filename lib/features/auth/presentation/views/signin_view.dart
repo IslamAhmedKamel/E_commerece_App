@@ -1,8 +1,8 @@
-import 'dart:developer';
-
 import 'package:e_commerece_app/core/functions/app_navigator.dart';
+import 'package:e_commerece_app/core/share.dart';
 import 'package:e_commerece_app/core/utils/app_assets.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
+import 'package:e_commerece_app/core/utils/app_constatn.dart';
 import 'package:e_commerece_app/core/utils/app_routing.dart';
 import 'package:e_commerece_app/core/utils/app_styles.dart';
 import 'package:e_commerece_app/core/widgets/custom_btn.dart';
@@ -49,15 +49,15 @@ class SigninView extends StatelessWidget {
                       content: Text(state.userModel.message),
                     ),
                   );
+
+                  CacheHelper.saveData(key: AppConstatn.islogin, value: true);
                   AppNavigator.pushReplacement(
                     context: context,
                     path: AppRouting.homePath,
                   );
                 }
               },
-            
-            
-            
+
               builder: (context, state) {
                 var signin = context.read<SigninCubit>();
                 return Column(
@@ -115,13 +115,21 @@ class SigninView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Create An Account ", style: AppStyles.style14),
-                        Text(
-                          "Sign Up",
+                        GestureDetector(
+                          onTap: () {
+                            AppNavigator.push(
+                              context: context,
+                              path: AppRouting.sinUpPath,
+                            );
+                          },
+                          child: Text(
+                            "Sign Up",
 
-                          style: AppStyles.style14.copyWith(
-                            decoration: TextDecoration.underline,
-                            decorationColor: AppColors.primColor,
-                            color: AppColors.primColor,
+                            style: AppStyles.style14.copyWith(
+                              decoration: TextDecoration.underline,
+                              decorationColor: AppColors.primColor,
+                              color: AppColors.primColor,
+                            ),
                           ),
                         ),
                       ],

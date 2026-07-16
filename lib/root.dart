@@ -17,7 +17,10 @@ class EcommereceApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(fontFamily: AppConstatn.primFont),
+          theme: ThemeData(
+            fontFamily: AppConstatn.primFont,
+            scaffoldBackgroundColor: Color(0xffF9F9F9),
+          ),
           routerConfig: AppRouting.router,
         );
       },

@@ -6,5 +6,6 @@ class AppConstatn {
   static String signUp = "api/v1/auth/signup";
   static String forgotPassword = "api/v1/auth/forgotPasswords";
   static String isVisitedOnboarding = "isVisitedOnboarding";
+  static String islogin = "islogin";
   static String tokenKey = "token";
 }
