@@ -4,6 +4,7 @@ UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 
 String userModelToJson(UserModel data) => json.encode(data.toJson());
 
+// اللي راجع من الا api
 class UserModel {
   final String message;
   final User user;

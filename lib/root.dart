@@ -9,18 +9,15 @@ class EcommereceApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var width = MediaQuery.of(context).size.width;
-    // var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return ScreenUtilPlusInit(
-      designSize: const Size(375, 812),
+      designSize: Size(width, height),
       autoRebuild: false, // 🎯 NEW: Disable automatic tree-wide rebuilds
       builder: (context, child) {
         return MaterialApp.router(
-          
           debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              fontFamily: AppConstatn.primFont
-            ),
+          theme: ThemeData(fontFamily: AppConstatn.primFont),
           routerConfig: AppRouting.router,
         );
       },

@@ -38,7 +38,6 @@ class SigninView extends StatelessWidget {
                       content: Text(state.errMessage),
                     ),
                   );
-                  log(state.errMessage);
                 } else if (state is SigninSuccess) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
@@ -52,20 +51,20 @@ class SigninView extends StatelessWidget {
                   );
                   AppNavigator.pushReplacement(
                     context: context,
-                    path: AppRouting.onBoardingPath,
+                    path: AppRouting.homePath,
                   );
                 }
               },
+            
+            
+            
               builder: (context, state) {
                 var signin = context.read<SigninCubit>();
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Gap(16),
-                    SizedBox(
-                      width: 185.w,
-                      child: Text("Welcome Back!", style: AppStyles.style36),
-                    ),
+                    Text("Welcome\nBack!", style: AppStyles.style36),
                     Gap(24.h),
                     CustomFormSignin(),
                     Gap(12.h),
