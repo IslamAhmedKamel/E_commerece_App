@@ -3,9 +3,10 @@ import 'package:e_commerece_app/core/utils/app_colors.dart';
 import 'package:e_commerece_app/core/utils/app_constatn.dart';
 import 'package:e_commerece_app/core/utils/app_styles.dart';
 import 'package:e_commerece_app/features/home/presentation/view_model/get_all_categories_cubit/get_all_categories_cubit.dart';
+import 'package:e_commerece_app/features/home/presentation/view_model/get_all_products_cubit/get_all_products_cubit.dart';
 import 'package:e_commerece_app/features/home/presentation/views/widgets/all_featured_list_veiw.dart';
 import 'package:e_commerece_app/features/home/presentation/views/widgets/ads_list.dart';
-import 'package:e_commerece_app/features/home/presentation/views/widgets/all_catygory_items_list.dart';
+import 'package:e_commerece_app/features/home/presentation/views/widgets/all_products_list.dart';
 import 'package:e_commerece_app/features/home/presentation/views/widgets/searchany_product_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +26,7 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     BlocProvider.of<GetAllCategoriesCubit>(context).getData();
+    BlocProvider.of<GetAllProductsCubit>(context).getData();
   }
 
   @override
@@ -75,7 +77,7 @@ class _HomeViewState extends State<HomeView> {
                   ],
                 ),
               ),
-              AllCatygoryItemsList(),
+              AllProductsList(),
             ],
           ),
         ),

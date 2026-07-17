@@ -22,7 +22,7 @@ class AllFeaturedListVeiw extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (context, index) =>
-                  FeaturedItem(categoryModel: state.categories[index]),
+                  CategoryItem(categoryModel: state.categories[index]),
             );
           } else if (state is GetAllCategoriesFailure) {
             return Center(

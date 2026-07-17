@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
-class FeaturedItem extends StatelessWidget {
-  const FeaturedItem({super.key, required this.categoryModel});
+class CategoryItem extends StatelessWidget {
+  const CategoryItem({super.key, required this.categoryModel});
   final CategoryModel categoryModel;
 
   @override
@@ -26,8 +26,8 @@ class FeaturedItem extends StatelessWidget {
               ),
               child: ClipOval(
                 child: Image.network(
-                  categoryModel.image?.isNotEmpty == true 
-                      ? categoryModel.image! 
+                  categoryModel.image.isNotEmpty == true
+                      ? categoryModel.image
                       : 'https://via.placeholder.com/56',
                   width: 56.w,
                   height: 56.h,
@@ -60,7 +60,7 @@ class FeaturedItem extends StatelessWidget {
             ),
             Gap(4.h),
             Text(
-              categoryModel.name ?? 'Unknown',
+              categoryModel.name,
               style: AppStyles.style10,
               textAlign: TextAlign.center,
               maxLines: 1,

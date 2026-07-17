@@ -1,35 +1,48 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerece_app/core/utils/app_assets.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
 import 'package:e_commerece_app/core/utils/app_styles.dart';
+import 'package:e_commerece_app/features/home/data/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key});
-
+  const ProductItem({super.key, required this._productModel});
+  final ProductModel _productModel;
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white,
       elevation: 8,
-      //  borderRadius: BorderRadius.circular(8.r)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(AppAssets.productimagetest, fit: BoxFit.fill),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Container(
+              color: Colors.red,
+              height: 196.h,
+              width: double.infinity,
+              child: CachedNetworkImage(
+                imageUrl: _productModel.imageCover,
+                fit: BoxFit.cover,
+                errorWidget: (context, url, error) => Icon(Icons.error),
+              ),
+            ),
+          ),
           Gap(8.h),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 8.spMin),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Mens Starry", style: AppStyles.style16),
-                Gap(4.h),
                 Text(
-                  "Mens Starry Sky Printed Shirt 100% Cotton Fabric",
-                  style: AppStyles.style10,
+                  _productModel.title,
+                  maxLines: 2,
+                  style: AppStyles.style16,
                 ),
-                Gap(4.h),
+                Gap(12.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

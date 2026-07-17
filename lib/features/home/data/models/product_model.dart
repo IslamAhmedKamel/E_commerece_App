@@ -1,123 +1,149 @@
+
 import 'package:e_commerece_app/features/home/data/models/catygroy_model.dart';
 
 class ProductModel {
-  int? sold;
-  List<String>? images;
-  List<Subcategory>? subcategory;
-  int? ratingsQuantity;
-  String? sId;
-  String? title;
-  String? slug;
-  String? description;
-  int? quantity;
-  int? price;
-  String? imageCover;
-  CategoryModel? category;
-  CategoryModel? brand;
-  double? ratingsAverage;
-  String? createdAt;
-  String? updatedAt;
-  String? id;
+  final int sold;
+  final List<String> images;
+  final List<Subcategory> subcategory;
+  final int ratingsQuantity;
+  final String id;
+  final String title;
+  final String slug;
+  final String description;
+  final int quantity;
+  final int price;
+  final String imageCover;
+  final CategoryModel category;
+  final Brand brand;
+  final double ratingsAverage;
+  final DateTime createdAt;
+  final DateTime updatedAt;
 
   ProductModel({
-    this.sold,
-    this.images,
-    this.subcategory,
-    this.ratingsQuantity,
-    this.sId,
-    this.title,
-    this.slug,
-    this.description,
-    this.quantity,
-    this.price,
-    this.imageCover,
-    this.category,
-    this.brand,
-    this.ratingsAverage,
-    this.createdAt,
-    this.updatedAt,
-    this.id,
+    required this.sold,
+    required this.images,
+    required this.subcategory,
+    required this.ratingsQuantity,
+    required this.id,
+    required this.title,
+    required this.slug,
+    required this.description,
+    required this.quantity,
+    required this.price,
+    required this.imageCover,
+    required this.category,
+    required this.brand,
+    required this.ratingsAverage,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
-  ProductModel.fromJson(Map<String, dynamic> json) {
-    sold = json['sold'];
-    images = json['images'].cast<String>();
-    if (json['subcategory'] != null) {
-      subcategory = <Subcategory>[];
-      json['subcategory'].forEach((v) {
-        subcategory!.add(Subcategory.fromJson(v));
-      });
-    }
-    ratingsQuantity = json['ratingsQuantity'];
-    sId = json['_id'];
-    title = json['title'];
-    slug = json['slug'];
-    description = json['description'];
-    quantity = json['quantity'];
-    price = json['price'];
-    imageCover = json['imageCover'];
-    category = json['category'] != null
-        ? CategoryModel.fromJson(json['category'])
-        : null;
-    brand = json['brand'] != null
-        ? CategoryModel.fromJson(json['brand'])
-        : null;
-    ratingsAverage = json['ratingsAverage'];
-    createdAt = json['createdAt'];
-    updatedAt = json['updatedAt'];
-    id = json['id'];
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    return ProductModel(
+      sold: json['sold'] ?? 0,
+      images: List<String>.from(json['images'] ?? []),
+      subcategory: (json['subcategory'] as List?)
+          ?.map((e) => Subcategory.fromJson(e))
+          .toList() ?? [],
+      ratingsQuantity: json['ratingsQuantity'] ?? 0,
+      id: json['_id'] ?? '',
+      title: json['title'] ?? '',
+      slug: json['slug'] ?? '',
+      description: json['description'] ?? '',
+      quantity: json['quantity'] ?? 0,
+      price: json['price'] ?? 0,
+      imageCover: json['imageCover'] ?? '',
+      category: CategoryModel.fromJson(json['category'] ?? {}),
+      brand: Brand.fromJson(json['brand'] ?? {}),
+      ratingsAverage: (json['ratingsAverage'] ?? 0).toDouble(),
+      createdAt: DateTime.tryParse(json['createdAt'] ?? '') ?? DateTime.now(),
+      updatedAt: DateTime.tryParse(json['updatedAt'] ?? '') ?? DateTime.now(),
+    );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['sold'] = sold;
-    data['images'] = images;
-    if (subcategory != null) {
-      data['subcategory'] = subcategory!.map((v) => v.toJson()).toList();
-    }
-    data['ratingsQuantity'] = ratingsQuantity;
-    data['_id'] = sId;
-    data['title'] = title;
-    data['slug'] = slug;
-    data['description'] = description;
-    data['quantity'] = quantity;
-    data['price'] = price;
-    data['imageCover'] = imageCover;
-    if (category != null) {
-      data['category'] = category!.toJson();
-    }
-    if (brand != null) {
-      data['brand'] = brand!.toJson();
-    }
-    data['ratingsAverage'] = ratingsAverage;
-    data['createdAt'] = createdAt;
-    data['updatedAt'] = updatedAt;
-    data['id'] = id;
-    return data;
+    return {
+      'sold': sold,
+      'images': images,
+      'subcategory': subcategory.map((e) => e.toJson()).toList(),
+      'ratingsQuantity': ratingsQuantity,
+      '_id': id,
+      'title': title,
+      'slug': slug,
+      'description': description,
+      'quantity': quantity,
+      'price': price,
+      'imageCover': imageCover,
+      'category': category.toJson(),
+      'brand': brand.toJson(),
+      'ratingsAverage': ratingsAverage,
+      'createdAt': createdAt.toIso8601String(),
+      'updatedAt': updatedAt.toIso8601String(),
+    };
   }
 }
+// models/brand_model.dart
 
-class Subcategory {
-  String? sId;
-  String? name;
-  String? slug;
-  String? category;
+class Brand {
+  final String id;
+  final String name;
+  final String slug;
+  final String image;
 
-  Subcategory({this.sId, this.name, this.slug, this.category});
+  Brand({
+    required this.id,
+    required this.name,
+    required this.slug,
+    required this.image,
+  });
 
-  Subcategory.fromJson(Map<String, dynamic> json) {
-    sId = json['_id'];
-    name = json['name'];
-    slug = json['slug'];
-    category = json['category'];
+  factory Brand.fromJson(Map<String, dynamic> json) {
+    return Brand(
+      id: json['_id'] ?? '',
+      name: json['name'] ?? '',
+      slug: json['slug'] ?? '',
+      image: json['image'] ?? '',
+    );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['_id'] = sId;
-    data['name'] = name;
-    data['slug'] = slug;
-    data['category'] = category;
-    return data;
+    return {
+      '_id': id,
+      'name': name,
+      'slug': slug,
+      'image': image,
+    };
+  }
+}// models/subcategory_model.dart
+
+class Subcategory {
+  final String id;
+  final String name;
+  final String slug;
+  final String category;
+
+  Subcategory({
+    required this.id,
+    required this.name,
+    required this.slug,
+    required this.category,
+  });
+
+  factory Subcategory.fromJson(Map<String, dynamic> json) {
+    return Subcategory(
+      id: json['_id'] ?? '',
+      name: json['name'] ?? '',
+      slug: json['slug'] ?? '',
+      category: json['category'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      '_id': id,
+      'name': name,
+      'slug': slug,
+      'category': category,
+    };
   }
 }
