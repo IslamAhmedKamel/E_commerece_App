@@ -40,8 +40,8 @@ class SignupCubit extends Cubit<SignupState> {
       (success) {
         reset();
         emit(SignupSuccess(userModel: success));
-        CacheHelper.saveData(key: AppConstatn.tokenKey, value: success.token);
-        log("tokeeen ${CacheHelper.getData(key: AppConstatn.tokenKey)}");
+        CacheHelper.saveData(key: AppConstant.tokenKey, value: success.token);
+        log("tokeeen ${CacheHelper.getData(key: AppConstant.tokenKey)}");
       },
     );
   }

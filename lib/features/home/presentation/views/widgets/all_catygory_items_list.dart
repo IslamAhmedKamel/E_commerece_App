@@ -1,4 +1,4 @@
-import 'package:e_commerece_app/features/home/presentation/widgets/product_item.dart';
+import 'package:e_commerece_app/features/home/presentation/views/widgets/product_item.dart';
 import 'package:flutter/material.dart';
 
 class AllCatygoryItemsList extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:e_commerece_app/core/utils/app_assets.dart';
 import 'package:e_commerece_app/core/widgets/smooth_page_indicator.dart';
-import 'package:e_commerece_app/features/home/presentation/widgets/custom_ads_list_page_view.dart';
+import 'package:e_commerece_app/features/home/presentation/views/widgets/custom_ads_list_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';

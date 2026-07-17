@@ -7,7 +7,9 @@ import 'package:e_commerece_app/features/auth/presentation/view_model/signup_cub
 import 'package:e_commerece_app/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:e_commerece_app/features/auth/presentation/views/signin_view.dart';
 import 'package:e_commerece_app/features/auth/presentation/views/signup_view.dart';
+import 'package:e_commerece_app/features/home/data/home_repo/home_repo_impl.dart';
 import 'package:e_commerece_app/features/home/presentation/home_view.dart';
+import 'package:e_commerece_app/features/home/presentation/view_model/get_all_categories_cubit/get_all_categories_cubit.dart';
 import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/onboarding_view.dart';
 import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +39,12 @@ class AppRouting {
       GoRoute(
         path: homePath,
         builder: (BuildContext context, GoRouterState state) {
-          return const HomeView();
+          return BlocProvider(
+            create: (context) => GetAllCategoriesCubit(
+              homeRepo: HomeRepoImpl(apiService: ApiService(dio: Dio())),
+            ),
+            child: const HomeView(),
+          );
         },
       ),
       GoRoute(

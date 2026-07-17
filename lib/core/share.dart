@@ -7,7 +7,7 @@ class CacheHelper {
   //! Initialize Hive cache
   static Future<void> init() async {
     await Hive.initFlutter();
-    _box = await Hive.openBox(AppConstatn.isVisitedOnboarding);
+    _box = await Hive.openBox(AppConstant.isVisitedOnboarding);
   }
 
   //! Get String data

@@ -12,31 +12,32 @@ class ProductModel {
   int? quantity;
   int? price;
   String? imageCover;
-  Category? category;
-  Category? brand;
+  CategoryModel? category;
+  CategoryModel? brand;
   double? ratingsAverage;
   String? createdAt;
   String? updatedAt;
   String? id;
 
-  ProductModel(
-      {this.sold,
-      this.images,
-      this.subcategory,
-      this.ratingsQuantity,
-      this.sId,
-      this.title,
-      this.slug,
-      this.description,
-      this.quantity,
-      this.price,
-      this.imageCover,
-      this.category,
-      this.brand,
-      this.ratingsAverage,
-      this.createdAt,
-      this.updatedAt,
-      this.id});
+  ProductModel({
+    this.sold,
+    this.images,
+    this.subcategory,
+    this.ratingsQuantity,
+    this.sId,
+    this.title,
+    this.slug,
+    this.description,
+    this.quantity,
+    this.price,
+    this.imageCover,
+    this.category,
+    this.brand,
+    this.ratingsAverage,
+    this.createdAt,
+    this.updatedAt,
+    this.id,
+  });
 
   ProductModel.fromJson(Map<String, dynamic> json) {
     sold = json['sold'];
@@ -44,7 +45,7 @@ class ProductModel {
     if (json['subcategory'] != null) {
       subcategory = <Subcategory>[];
       json['subcategory'].forEach((v) {
-        subcategory!.add(new Subcategory.fromJson(v));
+        subcategory!.add(Subcategory.fromJson(v));
       });
     }
     ratingsQuantity = json['ratingsQuantity'];
@@ -56,9 +57,11 @@ class ProductModel {
     price = json['price'];
     imageCover = json['imageCover'];
     category = json['category'] != null
-        ? new Category.fromJson(json['category'])
+        ? CategoryModel.fromJson(json['category'])
         : null;
-    brand = json['brand'] != null ? new Category.fromJson(json['brand']) : null;
+    brand = json['brand'] != null
+        ? CategoryModel.fromJson(json['brand'])
+        : null;
     ratingsAverage = json['ratingsAverage'];
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
@@ -66,30 +69,30 @@ class ProductModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['sold'] = this.sold;
-    data['images'] = this.images;
-    if (this.subcategory != null) {
-      data['subcategory'] = this.subcategory!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['sold'] = sold;
+    data['images'] = images;
+    if (subcategory != null) {
+      data['subcategory'] = subcategory!.map((v) => v.toJson()).toList();
     }
-    data['ratingsQuantity'] = this.ratingsQuantity;
-    data['_id'] = this.sId;
-    data['title'] = this.title;
-    data['slug'] = this.slug;
-    data['description'] = this.description;
-    data['quantity'] = this.quantity;
-    data['price'] = this.price;
-    data['imageCover'] = this.imageCover;
-    if (this.category != null) {
-      data['category'] = this.category!.toJson();
+    data['ratingsQuantity'] = ratingsQuantity;
+    data['_id'] = sId;
+    data['title'] = title;
+    data['slug'] = slug;
+    data['description'] = description;
+    data['quantity'] = quantity;
+    data['price'] = price;
+    data['imageCover'] = imageCover;
+    if (category != null) {
+      data['category'] = category!.toJson();
     }
-    if (this.brand != null) {
-      data['brand'] = this.brand!.toJson();
+    if (brand != null) {
+      data['brand'] = brand!.toJson();
     }
-    data['ratingsAverage'] = this.ratingsAverage;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['id'] = this.id;
+    data['ratingsAverage'] = ratingsAverage;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['id'] = id;
     return data;
   }
 }
@@ -110,12 +113,11 @@ class Subcategory {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['name'] = this.name;
-    data['slug'] = this.slug;
-    data['category'] = this.category;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['name'] = name;
+    data['slug'] = slug;
+    data['category'] = category;
     return data;
   }
 }
-

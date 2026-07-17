@@ -20,7 +20,7 @@ class AuthRepoImplement extends AuthRepo {
   }) async {
     try {
       var response = await _apiService.post(
-        endPoint: AppConstatn.signUp,
+        endPoint: AppConstant.signUp,
         data: signUpData.toJson(),
       );
       var user = UserModel.fromJson(response);
@@ -39,7 +39,7 @@ class AuthRepoImplement extends AuthRepo {
   }) async {
     try {
       var response = await _apiService.post(
-        endPoint: AppConstatn.signIn,
+        endPoint: AppConstant.signIn,
         data: signinData.toJson(),
       );
       var user = UserModel.fromJson(response);
@@ -76,7 +76,7 @@ class AuthRepoImplement extends AuthRepo {
   }) async {
     try {
       var response = await _apiService.post(
-        endPoint: AppConstatn.forgotPassword,
+        endPoint: AppConstant.forgotPassword,
         data: {"email": email},
       );
       var user = ForgotResponseModel.fromJson(response);

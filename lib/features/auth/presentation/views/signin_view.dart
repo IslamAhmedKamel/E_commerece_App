@@ -50,7 +50,7 @@ class SigninView extends StatelessWidget {
                     ),
                   );
 
-                  CacheHelper.saveData(key: AppConstatn.islogin, value: true);
+                  CacheHelper.saveData(key: AppConstant.islogin, value: true);
                   AppNavigator.pushReplacement(
                     context: context,
                     path: AppRouting.homePath,
