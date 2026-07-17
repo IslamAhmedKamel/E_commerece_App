@@ -17,31 +17,33 @@ final void Function(int)? onPageChanged;
 final List<OnboardingModel> onboardingList;
   @override
   Widget build(BuildContext context) {
-    return PageView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      onPageChanged:onPageChanged,
-      controller:_pageController ,
-      itemBuilder: (BuildContext context, int index) {
-        return Column(
-          children: [
-            SizedBox(
-              height: 233,
-              child: Image.asset(onboardingList[index].image,height: 300.h,width: 300.w,),
-            ),
-            Gap(6),
-            Text(
-              OnboardingModel.onboardingList[index].title,
-              style: AppStyles.style24,
-            ),
-            Text(
-              OnboardingModel.onboardingList[index].subTitle,
-              textAlign: TextAlign.center,
-              style: AppStyles.style14.copyWith(color: AppColors.greyColor),
-            ),
-          ],
-        );
-      },
-      itemCount: OnboardingModel.onboardingList.length,
+    return Expanded(
+      child: PageView.builder(
+        physics: NeverScrollableScrollPhysics(),
+        onPageChanged:onPageChanged,
+        controller:_pageController ,
+        itemBuilder: (BuildContext context, int index) {
+          return Column(
+            children: [
+              SizedBox(
+                height: 233,
+                child: Image.asset(onboardingList[index].image,height: 300.h,width: 300.w,),
+              ),
+              Gap(6),
+              Text(
+                OnboardingModel.onboardingList[index].title,
+                style: AppStyles.style24,
+              ),
+              Text(
+                OnboardingModel.onboardingList[index].subTitle,
+                textAlign: TextAlign.center,
+                style: AppStyles.style14.copyWith(color: AppColors.greyColor),
+              ),
+            ],
+          );
+        },
+        itemCount: OnboardingModel.onboardingList.length,
+      ),
     );
   }
 }

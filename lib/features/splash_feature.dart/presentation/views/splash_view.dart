@@ -20,9 +20,9 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     bool? isVisited = CacheHelper.getDataBool(
-      key: AppConstatn.isVisitedOnboarding,
+      key: AppConstant.isVisitedOnboarding,
     );
-    bool? islogin = CacheHelper.getDataBool(key: AppConstatn.islogin);
+    bool? islogin = CacheHelper.getDataBool(key: AppConstant.islogin);
     Timer(Duration(seconds: 4), () {
       // ✅ استخدم getDataBool
       if (isVisited == true) {
