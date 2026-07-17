@@ -56,23 +56,26 @@ class _AdsListState extends State<AdsList> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomAdsListPageView(
-          pageController: _pageController,
-          adsList: adsList,
-          onPageChanged: (index) {
-            setState(() {
-              _currentPage = index;
-            });
-          },
-        ),
-        Gap(8.h),
-        CustomSmoothPageIndicator(
-          pageController: _pageController,
-          count: adsList.length,
-        ),
-      ],
+    return SizedBox(
+      height: 220.h,
+      child: Column(
+        children: [
+          CustomAdsListPageView(
+            pageController: _pageController,
+            adsList: adsList,
+            onPageChanged: (index) {
+              setState(() {
+                _currentPage = index;
+              });
+            },
+          ),
+          Gap(8.h),
+          CustomSmoothPageIndicator(
+            pageController: _pageController,
+            count: adsList.length,
+          ),
+        ],
+      ),
     );
   }
 }

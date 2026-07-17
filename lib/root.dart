@@ -12,7 +12,7 @@ class EcommereceApp extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return ScreenUtilPlusInit(
-      designSize: Size(width, height),
+      designSize: Size(375, 812),
       autoRebuild: false, // 🎯 NEW: Disable automatic tree-wide rebuilds
       builder: (context, child) {
         return MaterialApp.router(

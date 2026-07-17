@@ -15,5 +15,6 @@ class AppAssets {
   static const String ads1 = "assets/images/ads1.jpeg";
   static const String ads2 = "assets/images/ads2.jpeg";
   static const String ads3 = "assets/images/ads3.jpeg";
+  static const String productimagetest = "assets/images/productimagetest.png";
   static const String ads4 = "assets/images/ads4.jpeg";
 }
