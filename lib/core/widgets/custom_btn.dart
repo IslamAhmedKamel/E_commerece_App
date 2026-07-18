@@ -21,7 +21,7 @@ class CustomBtn extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: AppStyles.style20.copyWith(color: Colors.white),
+            style: AppStyles.style20(context: context,).copyWith(color: Colors.white),
           ),
         ),
       ),

@@ -17,7 +17,7 @@ class ForgotPasswordWidget extends StatelessWidget {
         alignment: AlignmentGeometry.centerEnd,
         child: Text(
           "Forgot Password?",
-          style: AppStyles.style12.copyWith(color: AppColors.primColor),
+          style: AppStyles.style10(context: context).copyWith(color: AppColors.primColor),
         ),
       ),
     );

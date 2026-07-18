@@ -2,32 +2,18 @@ import 'package:e_commerece_app/core/utils/app_assets.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
 import 'package:e_commerece_app/core/utils/app_constatn.dart';
 import 'package:e_commerece_app/core/utils/app_styles.dart';
-import 'package:e_commerece_app/features/home/presentation/view_model/get_all_categories_cubit/get_all_categories_cubit.dart';
-import 'package:e_commerece_app/features/home/presentation/view_model/get_all_products_cubit/get_all_products_cubit.dart';
+import 'package:e_commerece_app/core/widgets/custom_text.dart';
 import 'package:e_commerece_app/features/home/presentation/views/widgets/all_featured_list_veiw.dart';
 import 'package:e_commerece_app/features/home/presentation/views/widgets/ads_list.dart';
 import 'package:e_commerece_app/features/home/presentation/views/widgets/all_products_list.dart';
 import 'package:e_commerece_app/features/home/presentation/views/widgets/searchany_product_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
-
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  @override
-  void initState() {
-    super.initState();
-    BlocProvider.of<GetAllCategoriesCubit>(context).getData();
-    BlocProvider.of<GetAllProductsCubit>(context).getData();
-  }
+class HomeViewTab extends StatelessWidget {
+  const HomeViewTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +38,7 @@ class _HomeViewState extends State<HomeView> {
                             Gap(9),
                             Text(
                               "Stylish",
-                              style: AppStyles.style18.copyWith(
+                              style: AppStyles.style10(context: context).copyWith(
                                 fontFamily: AppConstant.secondFont,
                                 color: AppColors.blueColor,
                                 fontWeight: FontWeight.w600,
@@ -70,10 +56,10 @@ class _HomeViewState extends State<HomeView> {
                     Gap(16.h),
                     SearchanyProductTextField(),
                     Gap(16.h),
-                    Text("All Featured", style: AppStyles.style18),
+                    CustomText(text: "All Featured"),
                     AllFeaturedListVeiw(),
                     AdsList(),
-                    Text("All Products", style: AppStyles.style18),
+                    CustomText(text: "All Products"),
                   ],
                 ),
               ),

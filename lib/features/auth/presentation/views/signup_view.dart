@@ -60,7 +60,7 @@ class SignupView extends StatelessWidget {
               return Column(
                 children: [
                   Gap(32),
-                  Text("Create an\naccount", style: AppStyles.style36),
+                  Text("Create an\naccount", style: AppStyles.style10(context: context)),
                   Gap(16),
                   CustomFormSinup(),
                   Gap(16),
@@ -83,7 +83,7 @@ class SignupView extends StatelessWidget {
                         ),
                   Text(
                     "- OR Continue with -",
-                    style: AppStyles.style12.copyWith(
+                    style: AppStyles.style12(context: context,).copyWith(
                       color: AppColors.greyDeepColor,
                     ),
                   ),
@@ -104,7 +104,7 @@ class SignupView extends StatelessWidget {
                     children: [
                       Text(
                         "I Already Have an Account ",
-                        style: AppStyles.style14,
+                        style: AppStyles.style10(context: context),
                       ),
                       GestureDetector(
                         onTap: () {
@@ -115,7 +115,7 @@ class SignupView extends StatelessWidget {
                         },
                         child: Text(
                           "Login",
-                          style: AppStyles.style14.copyWith(
+                          style: AppStyles.style14(context: context,).copyWith(
                             decoration: TextDecoration.underline,
                             decorationColor: AppColors.primColor,
                             color: AppColors.primColor,

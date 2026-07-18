@@ -1,41 +1,68 @@
-import 'package:flutter/rendering.dart';
+import 'package:e_commerece_app/core/functions/responsve_text.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 class AppStyles {
-  static final style40 = TextStyle(
-    fontSize: 40.sp,
-    fontWeight: FontWeight.bold,
-  );
-  static final style36 = TextStyle(
-    fontSize: 36.spMax,
-    fontWeight: FontWeight.w700,
-  );
-  static final style18 = TextStyle(
-    fontSize: 18.spMax,
-    fontWeight: FontWeight.w600,
-  );
-  static final style20 = TextStyle(
-    fontSize: 20.spMax,
-    fontWeight: FontWeight.w500,
-  );
-  static final style12 = TextStyle(
-    fontSize: 12.spMax,
-    fontWeight: FontWeight.w500,
-  );
-  static final style16 = TextStyle(
-    fontSize: 16.spMax,
-    fontWeight: FontWeight.w500,
-  );
-  static final style10 = TextStyle(
-    fontSize: 10.spMax,
-    fontWeight: FontWeight.w400,
-  );
-  static final style24 = TextStyle(
-    fontSize: 24.spMax,
-    fontWeight: FontWeight.w800,
-  );
-  static final style14 = TextStyle(
-    fontSize: 14.spMax,
-    fontWeight: FontWeight.w600,
-  );
+  static TextStyle style10({required BuildContext context}) {
+    return TextStyle(
+      fontSize: getresponsiveFontSize(context: context, fontSize: 10.sp),
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+  static TextStyle style12({required BuildContext context}) {
+    return TextStyle(
+      fontSize: getresponsiveFontSize(context: context, fontSize: 12.sp),
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  static TextStyle style14({required BuildContext context}) {
+    return TextStyle(
+      fontSize: getresponsiveFontSize(context: context, fontSize: 14.sp),
+      fontWeight: FontWeight.w600,
+    );
+  }
+
+  static TextStyle style16({required BuildContext context}) {
+    return TextStyle(
+      fontSize: getresponsiveFontSize(context: context, fontSize: 16.sp),
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  static TextStyle style18({required BuildContext context}) {
+    return TextStyle(
+      fontSize: getresponsiveFontSize(context: context, fontSize: 18.sp),
+      fontWeight: FontWeight.w600,
+    );
+  }
+
+  static TextStyle style20({required BuildContext context}) {
+    return TextStyle(
+      fontSize: getresponsiveFontSize(context: context, fontSize: 20.sp),
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  static TextStyle style24({required BuildContext context}) {
+    return TextStyle(
+      fontSize: getresponsiveFontSize(context: context, fontSize: 24.sp),
+      fontWeight: FontWeight.w800,
+    );
+  }
+
+  static TextStyle style36({required BuildContext context}) {
+    return TextStyle(
+      fontSize: getresponsiveFontSize(context: context, fontSize: 36.sp),
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  static TextStyle style40({required BuildContext context}) {
+    return TextStyle(
+      fontSize: getresponsiveFontSize(context: context, fontSize: 40.sp),
+      fontWeight: FontWeight.bold,
+    );
+  }
 }

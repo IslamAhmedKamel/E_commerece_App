@@ -32,12 +32,12 @@ final List<OnboardingModel> onboardingList;
               Gap(6),
               Text(
                 OnboardingModel.onboardingList[index].title,
-                style: AppStyles.style24,
+                style: AppStyles.style10(context: context),
               ),
               Text(
                 OnboardingModel.onboardingList[index].subTitle,
                 textAlign: TextAlign.center,
-                style: AppStyles.style14.copyWith(color: AppColors.greyColor),
+                style: AppStyles.style14(context: context).copyWith(color: AppColors.greyColor),
               ),
             ],
           );

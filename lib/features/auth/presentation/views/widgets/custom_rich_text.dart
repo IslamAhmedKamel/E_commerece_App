@@ -13,12 +13,12 @@ class CustomRichText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text.rich(
       TextSpan(
-        style: AppStyles.style12,
+        style: AppStyles.style10(context: context),
         children: [
           TextSpan(text: "By clicking the "),
           TextSpan(
             text: "Register ",
-            style: AppStyles.style12.copyWith(
+            style: AppStyles.style12(context: context).copyWith(
               color: AppColors.primColor,
             ),
           ),

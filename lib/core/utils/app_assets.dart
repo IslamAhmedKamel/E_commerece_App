@@ -2,7 +2,10 @@ class AppAssets {
   static const String logo = "assets/images/logo.svg";
   static const String registerIcon = "assets/images/register_icon.svg";
   static const String googleIcon = "assets/images/google.png";
+  static const String cartIcon = "assets/images/cart.svg";
   static const String menueIcon = "assets/images/menue.svg";
+  static const String minimizeIcon = "assets/images/minimize.svg";
+  static const String plusIcon = "assets/images/plus.svg";
   static const String searchIcon = "assets/images/searchicon.svg";
   static const String microphoneIcon = "assets/images/microphoneicon.svg";
   static const String facebookIcon = "assets/images/facebook.png";

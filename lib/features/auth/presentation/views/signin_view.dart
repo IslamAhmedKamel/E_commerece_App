@@ -64,7 +64,7 @@ class SigninView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Gap(16),
-                    Text("Welcome\nBack!", style: AppStyles.style36),
+                    Text("Welcome\nBack!", style: AppStyles.style36(context: context)),
                     Gap(24.h),
                     CustomFormSignin(),
                     Gap(12.h),
@@ -92,7 +92,7 @@ class SigninView extends StatelessWidget {
                       child: Text(
                         "- OR Continue with -",
 
-                        style: AppStyles.style12.copyWith(
+                        style: AppStyles.style12(context: context).copyWith(
                           color: AppColors.greyDeepColor,
                         ),
                       ),
@@ -114,7 +114,7 @@ class SigninView extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Create An Account ", style: AppStyles.style14),
+                        Text("Create An Account ", style: AppStyles.style10(context: context)),
                         GestureDetector(
                           onTap: () {
                             AppNavigator.push(
@@ -125,7 +125,7 @@ class SigninView extends StatelessWidget {
                           child: Text(
                             "Sign Up",
 
-                            style: AppStyles.style14.copyWith(
+                            style: AppStyles.style14(context: context,).copyWith(
                               decoration: TextDecoration.underline,
                               decorationColor: AppColors.primColor,
                               color: AppColors.primColor,
