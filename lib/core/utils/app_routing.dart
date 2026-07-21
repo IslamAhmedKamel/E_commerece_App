@@ -9,13 +9,15 @@ import 'package:e_commerece_app/features/auth/presentation/views/forgot_password
 import 'package:e_commerece_app/features/auth/presentation/views/signin_view.dart';
 import 'package:e_commerece_app/features/auth/presentation/views/signup_view.dart';
 import 'package:e_commerece_app/features/details/presentation/views/details_view.dart';
+import 'package:e_commerece_app/features/favorites/presentation/view_models/favorit_repo/favorit_repo_impl.dart';
+import 'package:e_commerece_app/features/favorites/presentation/view_models/get_favorits_cubit/get_favorits_cubit.dart';
 import 'package:e_commerece_app/features/home/data/home_repo/home_repo_impl.dart';
 import 'package:e_commerece_app/features/home/data/models/product_model.dart';
 import 'package:e_commerece_app/home_root.dart';
 import 'package:e_commerece_app/features/home/presentation/view_model/get_all_categories_cubit/get_all_categories_cubit.dart';
 import 'package:e_commerece_app/features/home/presentation/view_model/get_all_products_cubit/get_all_products_cubit.dart';
-import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/onboarding_view.dart';
-import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/splash_view.dart';
+import 'package:e_commerece_app/features/splash/presentation/views/onboarding_view.dart';
+import 'package:e_commerece_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -52,6 +54,13 @@ class AppRouting {
                 ),
               ),
               BlocProvider(
+                create: (context) => GetFavoritsCubit(
+                  favoritRepo: FavoritRepoImpl(
+                    apiService: ApiService(dio: Dio()),
+                  ),
+                ),
+              ),
+              BlocProvider(
                 create: (context) => GetAllProductsCubit(
                   homeRepo: HomeRepoImpl(apiService: ApiService(dio: Dio())),
                 ),
@@ -76,7 +85,7 @@ class AppRouting {
       GoRoute(
         path: detailsPath,
         builder: (BuildContext context, GoRouterState state) {
-          return  DetailsView(productModel:state.extra as ProductModel ,);
+          return DetailsView(productModel: state.extra as ProductModel);
         },
       ),
       GoRoute(

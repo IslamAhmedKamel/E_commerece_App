@@ -50,7 +50,7 @@ class ProductItem extends StatelessWidget {
                   Text(
                     _productModel.title,
                     maxLines: 2,
-                    style: AppStyles.style10(context: context),
+                    style: AppStyles.style10(),
                   ),
                   Gap(12.h),
                   Row(
@@ -58,32 +58,25 @@ class ProductItem extends StatelessWidget {
                     children: [
                       Text(
                         "EGP ${_productModel.price}",
-                        style: AppStyles.style10(context: context),
+                        style: AppStyles.style10(),
                       ),
-                      Text(
-                        "${_productModel.quantity} EGP",
 
-                        style: AppStyles.style10(context: context).copyWith(
-                          color: AppColors.primColor,
-
-                          decoration: TextDecoration.lineThrough,
-                          decorationColor: AppColors.primColor,
-                        ),
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () {},
+                        icon: Icon(Icons.favorite_outline, color: Colors.green),
                       ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        "Review",
-                        style: AppStyles.style10(context: context),
-                      ),
+                      Text("Review", style: AppStyles.style10()),
                       Row(
                         children: [
                           Text(
                             "(${_productModel.ratingsAverage})",
-                            style: AppStyles.style10(context: context),
+                            style: AppStyles.style10(),
                           ),
                           Icon(Icons.star, color: AppColors.yllowColor),
                         ],

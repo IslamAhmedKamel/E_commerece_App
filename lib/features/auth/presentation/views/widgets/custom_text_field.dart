@@ -32,7 +32,7 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: AppStyles.style10(context: context),
+        hintStyle: AppStyles.style12(),
         fillColor: Color(0XFFF3F3F3),
         filled: true,
         suffixIcon: suffixIcon ?? Gap(0),

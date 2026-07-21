@@ -16,7 +16,7 @@ class CustomInkTextOnboarding extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Text(text, style: AppStyles.style10(context: context).copyWith(color: color)),
+      child: Text(text, style: AppStyles.style10().copyWith(color: color)),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 class CustomImagesSlider extends StatelessWidget {
   const CustomImagesSlider({super.key, required this.images});

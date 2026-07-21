@@ -18,7 +18,11 @@ class SkipWidget extends StatelessWidget {
           path: AppRouting.sinUpPath,
         );
       },
-      child: Text("Skip", textAlign: TextAlign.right, style: AppStyles.style18(context: context)),
+      child: Text(
+        "Skip",
+        textAlign: TextAlign.right,
+        style: AppStyles.style18(),
+      ),
     );
   }
 }

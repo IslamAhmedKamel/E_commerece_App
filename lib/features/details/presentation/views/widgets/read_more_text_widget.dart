@@ -10,16 +10,14 @@ class ReadMoreTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ReadMoreText(
       text,
-      style: AppStyles.style12(context: context),
+      style: AppStyles.style12(),
       trimMode: TrimMode.Line,
       trimLines: 2,
       isExpandable: true,
       colorClickableText: AppColors.primColor,
       trimCollapsedText: 'Show more',
       trimExpandedText: 'Show less',
-      moreStyle: AppStyles.style16(
-        context: context,
-      ).copyWith(color: AppColors.primColor),
+      moreStyle: AppStyles.style16().copyWith(color: AppColors.primColor),
     );
   }
 }

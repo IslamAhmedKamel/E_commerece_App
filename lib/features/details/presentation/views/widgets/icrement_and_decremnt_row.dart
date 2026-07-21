@@ -26,7 +26,7 @@ class IncrementAndDecrementRow extends StatelessWidget {
           Gap(15.w),
           Text(
             "1",
-            style: AppStyles.style10(context: context).copyWith(color: AppColors.whiteColor),
+            style: AppStyles.style10().copyWith(color: AppColors.whiteColor),
           ),
           Gap(15.w),
           GestureDetector(

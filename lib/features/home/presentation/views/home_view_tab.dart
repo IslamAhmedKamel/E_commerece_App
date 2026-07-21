@@ -38,7 +38,7 @@ class HomeViewTab extends StatelessWidget {
                             Gap(9),
                             Text(
                               "Stylish",
-                              style: AppStyles.style10(context: context).copyWith(
+                              style: AppStyles.style10().copyWith(
                                 fontFamily: AppConstant.secondFont,
                                 color: AppColors.blueColor,
                                 fontWeight: FontWeight.w600,

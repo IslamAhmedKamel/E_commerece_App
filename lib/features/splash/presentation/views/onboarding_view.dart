@@ -2,10 +2,10 @@ import 'package:e_commerece_app/core/functions/app_navigator.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
 import 'package:e_commerece_app/core/utils/app_routing.dart';
 import 'package:e_commerece_app/core/widgets/smooth_page_indicator.dart';
-import 'package:e_commerece_app/features/splash_feature.dart/data/onboarding_model.dart';
-import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/widgets/custom_ink_text_onboarding.dart';
-import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/widgets/onboarding_body.dart';
-import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/widgets/skip_widget.dart';
+import 'package:e_commerece_app/features/splash/data/onboarding_model.dart';
+import 'package:e_commerece_app/features/splash/presentation/views/widgets/custom_ink_text_onboarding.dart';
+import 'package:e_commerece_app/features/splash/presentation/views/widgets/onboarding_body.dart';
+import 'package:e_commerece_app/features/splash/presentation/views/widgets/skip_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 

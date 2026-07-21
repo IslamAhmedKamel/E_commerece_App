@@ -19,9 +19,9 @@ class AddToCartRow extends StatelessWidget {
           children: [
             Text(
               "Total price",
-              style: AppStyles.style10(context: context).copyWith(fontWeight: FontWeight.bold),
+              style: AppStyles.style10().copyWith(fontWeight: FontWeight.bold),
             ),
-            Text("EGP 3,500", style: AppStyles.style10(context: context)),
+            Text("EGP 3,500", style: AppStyles.style10(),)
           ],
         ),
         Container(
@@ -37,7 +37,7 @@ class AddToCartRow extends StatelessWidget {
               Gap(8.w),
               Text(
                 "Add to cart",
-                style: AppStyles.style10(context: context).copyWith(color: AppColors.whiteColor),
+                style: AppStyles.style10().copyWith(color: AppColors.whiteColor),
               ),
             ],
           ),

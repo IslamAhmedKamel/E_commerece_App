@@ -58,9 +58,10 @@ class SignupView extends StatelessWidget {
             },
             builder: (context, state) {
               return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Gap(32),
-                  Text("Create an\naccount", style: AppStyles.style10(context: context)),
+                  Text("Create an\naccount", style: AppStyles.style36()),
                   Gap(16),
                   CustomFormSinup(),
                   Gap(16),
@@ -76,15 +77,19 @@ class SignupView extends StatelessWidget {
                           ),
                         )
                       : CustomBtn(
-                          text: 'Sign Up',
+                          text: 'Create Account',
                           onTap: () {
                             signUp.signUp();
                           },
                         ),
-                  Text(
-                    "- OR Continue with -",
-                    style: AppStyles.style12(context: context,).copyWith(
-                      color: AppColors.greyDeepColor,
+                  Gap(40.h),
+                  Align(
+                    alignment: AlignmentGeometry.center,
+                    child: Text(
+                      "- OR Continue with -",
+                      style: AppStyles.style12().copyWith(
+                        color: AppColors.greyDeepColor,
+                      ),
                     ),
                   ),
                   Gap(12),
@@ -104,7 +109,7 @@ class SignupView extends StatelessWidget {
                     children: [
                       Text(
                         "I Already Have an Account ",
-                        style: AppStyles.style10(context: context),
+                        style: AppStyles.style10(),
                       ),
                       GestureDetector(
                         onTap: () {
@@ -115,7 +120,7 @@ class SignupView extends StatelessWidget {
                         },
                         child: Text(
                           "Login",
-                          style: AppStyles.style14(context: context,).copyWith(
+                          style: AppStyles.style14().copyWith(
                             decoration: TextDecoration.underline,
                             decorationColor: AppColors.primColor,
                             color: AppColors.primColor,

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import 'package:e_commerece_app/core/utils/app_colors.dart';
 import 'package:e_commerece_app/core/utils/app_styles.dart';
-import 'package:e_commerece_app/features/splash_feature.dart/data/onboarding_model.dart';
+import 'package:e_commerece_app/features/splash/data/onboarding_model.dart';
 
 class OnboardingBody extends StatelessWidget {
   const OnboardingBody({
@@ -32,12 +32,12 @@ final List<OnboardingModel> onboardingList;
               Gap(6),
               Text(
                 OnboardingModel.onboardingList[index].title,
-                style: AppStyles.style10(context: context),
+                style: AppStyles.style10(),
               ),
               Text(
                 OnboardingModel.onboardingList[index].subTitle,
                 textAlign: TextAlign.center,
-                style: AppStyles.style14(context: context).copyWith(color: AppColors.greyColor),
+                style: AppStyles.style14().copyWith(color: AppColors.greyColor),
               ),
             ],
           );

@@ -1,6 +1,6 @@
 import 'package:e_commerece_app/core/utils/app_constatn.dart';
 import 'package:e_commerece_app/core/utils/app_routing.dart';
-import 'package:e_commerece_app/features/splash_feature.dart/presentation/views/splash_view.dart';
+import 'package:e_commerece_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 

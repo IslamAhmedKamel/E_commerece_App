@@ -19,6 +19,7 @@ class CustomFormSinup extends StatelessWidget {
           CustomTextField(
             controller: signUp.nameController,
             hintText: "Username",
+            
             prefixIcon: const Icon(Icons.person),
             validator: (value) {
               if (value == null || value.isEmpty) {
