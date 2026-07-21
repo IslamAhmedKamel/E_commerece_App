@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:e_commerece_app/core/api_service.dart';
 import 'package:e_commerece_app/core/errors/failure.dart';
 import 'package:e_commerece_app/core/utils/app_constatn.dart';
+import 'package:e_commerece_app/features/favorites/data/models/add_product_to_favorit_model_response.dart';
 import 'package:e_commerece_app/features/home/data/home_repo/home_repo.dart';
 import 'package:e_commerece_app/features/home/data/models/catygroy_model.dart';
 import 'package:e_commerece_app/features/home/data/models/product_model.dart';
@@ -41,6 +42,27 @@ class HomeRepoImpl extends HomeRepo {
         products.add(ProductModel.fromJson(product));
       }
       return right(products);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioEx(e));
+      }
+      return left(ServerFailure(errorMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, AddProductToFavoritModel>> addProductToFavorit({
+    required Map<String, dynamic> data,
+    Map<String, dynamic>? headers,
+  }) async {
+    try {
+      var reponse = await _apiService.post(
+        endPoint: AppConstant.wishlist,
+        data: data,
+        headers: headers,
+      );
+      AddProductToFavoritModel product=AddProductToFavoritModel.fromJson(reponse);
+      return right(product);
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioEx(e));

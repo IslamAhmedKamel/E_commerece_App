@@ -61,7 +61,7 @@ class CategoryItem extends StatelessWidget {
             Gap(4.h),
             Text(
               categoryModel.name,
-              style: AppStyles.style10(context: context),
+              style: AppStyles.style10(),
               textAlign: TextAlign.center,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,

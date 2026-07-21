@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:e_commerece_app/core/share.dart';
 import 'package:e_commerece_app/core/utils/app_constatn.dart';
 import 'package:e_commerece_app/features/auth/data/auth_repo/auth_repo.dart';
@@ -7,6 +5,7 @@ import 'package:e_commerece_app/features/auth/data/models/auth_response_model.da
 import 'package:e_commerece_app/features/auth/data/models/signup_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 part 'signup_state.dart';
 
 class SignupCubit extends Cubit<SignupState> {
@@ -41,7 +40,8 @@ class SignupCubit extends Cubit<SignupState> {
         reset();
         emit(SignupSuccess(userModel: success));
         CacheHelper.saveData(key: AppConstant.tokenKey, value: success.token);
-        log("tokeeen ${CacheHelper.getData(key: AppConstant.tokenKey)}");
+        Map<String, dynamic> decodedToken = JwtDecoder.decode(success.token);
+        CacheHelper.saveData(key: AppConstant.idKey, value: decodedToken["id"]);
       },
     );
   }

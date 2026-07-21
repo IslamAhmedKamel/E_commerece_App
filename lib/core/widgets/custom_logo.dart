@@ -18,7 +18,7 @@ class CusstomLogo extends StatelessWidget {
         Gap(9),
         Text(
           "Stylish",
-          style: AppStyles.style40(context: context,).copyWith(
+          style: AppStyles.style40().copyWith(
             fontFamily: AppConstant.secondFont,
             color: AppColors.primColor,
           ),

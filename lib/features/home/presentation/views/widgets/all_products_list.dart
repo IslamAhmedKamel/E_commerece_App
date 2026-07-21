@@ -18,7 +18,7 @@ class AllProductsList extends StatelessWidget {
         } else if (state is GetAllProductsFailure) {
           return SliverFillRemaining(
             child: Center(
-              child: Text(state.errorMessage, style: AppStyles.style10(context: context)),
+              child: Text(state.errorMessage, style: AppStyles.style10()),
             ),
           );
         } else if (state is GetAllProductsSucsecefull) {
@@ -26,7 +26,7 @@ class AllProductsList extends StatelessWidget {
             itemCount: 20,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 1 / 2,
+              childAspectRatio: 1 / 2.1,
               crossAxisSpacing: 15,
               mainAxisSpacing: 15,
             ),

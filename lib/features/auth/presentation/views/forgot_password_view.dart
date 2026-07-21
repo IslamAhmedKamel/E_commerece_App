@@ -57,7 +57,7 @@ class ForgotPasswordView extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Forgot\npassword?", style: AppStyles.style36(context: context)),
+                    Text("Forgot\npassword?", style: AppStyles.style36()),
                     Gap(32.h),
                     ForgotPasswordForm(),
                     Gap(24.h),
@@ -66,14 +66,14 @@ class ForgotPasswordView extends StatelessWidget {
                       children: [
                         Text(
                           "*",
-                          style: AppStyles.style12(context: context,).copyWith(
+                          style: AppStyles.style12().copyWith(
                             color: AppColors.primColor,
                           ),
                         ),
                         Expanded(
                           child: Text(
                             " We will send you a message to set or reset your new password",
-                            style: AppStyles.style10(context: context),
+                            style: AppStyles.style10(),
                           ),
                         ),
                       ],

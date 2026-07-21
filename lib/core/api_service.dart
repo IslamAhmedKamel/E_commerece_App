@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:e_commerece_app/core/utils/app_constatn.dart';
 
@@ -18,13 +17,24 @@ class ApiService {
   Future<Map<String, dynamic>> post({
     required String endPoint,
     required dynamic data,
+    Map<String, dynamic>? headers,
   }) async {
-    var response = await _dio.post(endPoint, data: data);
+    var response = await _dio.post(
+      endPoint,
+      data: data,
+      options: Options(headers: headers),
+    );
     return response.data;
   }
 
-  Future<Map<String, dynamic>> getData({required String endPoint}) async {
-    Response response = await _dio.get(endPoint);
+  Future<Map<String, dynamic>> getData({
+    required String endPoint,
+    Map<String, dynamic>? headers,
+  }) async {
+    Response response = await _dio.get(
+      endPoint,
+      options: Options(headers: headers),
+    );
     return response.data;
   }
 }

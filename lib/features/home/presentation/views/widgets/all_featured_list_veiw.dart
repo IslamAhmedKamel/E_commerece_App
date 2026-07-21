@@ -26,7 +26,7 @@ class AllFeaturedListVeiw extends StatelessWidget {
             );
           } else if (state is GetAllCategoriesFailure) {
             return Center(
-              child: Text(state.errorMessage, style: AppStyles.style10(context: context)),
+              child: Text(state.errorMessage, style: AppStyles.style10()),
             );
           } else if (state is GetAllCategoriesLoading) {
             return Center(child: CircularProgressIndicator());

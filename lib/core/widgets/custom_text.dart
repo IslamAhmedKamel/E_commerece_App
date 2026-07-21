@@ -6,6 +6,6 @@ class CustomText extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return Text(text, style: AppStyles.style18(context: context));
+    return Text(text, style: AppStyles.style18());
   }
 }

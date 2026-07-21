@@ -21,7 +21,7 @@ class DetailsView extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Product Details",
-          style: AppStyles.style14(context: context),
+          style: AppStyles.style14(),
         ),
         centerTitle: true,
         actions: [
@@ -42,7 +42,6 @@ class DetailsView extends StatelessWidget {
                     Gap(16.h),
                     CustomProductNameRow(
                       productName: _productModel.title,
-                      productprice: _productModel.price.toString(),
                     ),
                     Gap(16.h),
                     CustomProductPriceRow(productModel: _productModel),

@@ -46,6 +46,7 @@ dependencies:
   badges: ^3.2.0
   flutter_image_slideshow: ^0.1.6
   readmore: ^3.0.0
+  jwt_decoder: ^2.0.1
 
 dev_dependencies:
   flutter_test:

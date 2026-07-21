@@ -27,7 +27,7 @@ class SearchanyProductTextField extends StatelessWidget {
           ),
           hint: Text(
             "Search any Product..",
-            style: AppStyles.style10(context: context).copyWith(
+            style: AppStyles.style10().copyWith(
               fontWeight: FontWeight(400),
               color: AppColors.greyHomeColor,
             ),

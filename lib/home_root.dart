@@ -1,8 +1,8 @@
-import 'dart:developer';
 
 import 'package:e_commerece_app/core/cubit/cubit/bottom_nav_cubit.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
 import 'package:e_commerece_app/features/cart/views/cart_view_tab.dart';
+import 'package:e_commerece_app/features/favorites/presentation/view_models/get_favorits_cubit/get_favorits_cubit.dart';
 import 'package:e_commerece_app/features/favorites/presentation/views/favorite_view_tab.dart';
 import 'package:e_commerece_app/features/home/presentation/view_model/get_all_categories_cubit/get_all_categories_cubit.dart';
 import 'package:e_commerece_app/features/home/presentation/view_model/get_all_products_cubit/get_all_products_cubit.dart';
@@ -22,6 +22,7 @@ class HomeViewRoot extends StatefulWidget {
 class _HomeViewRootState extends State<HomeViewRoot> {
   @override
   void initState() {
+    BlocProvider.of<GetFavoritsCubit>(context).getFavorits();
     super.initState();
     BlocProvider.of<GetAllCategoriesCubit>(context).getData();
     BlocProvider.of<GetAllProductsCubit>(context).getData();
@@ -68,7 +69,9 @@ class _HomeViewRootState extends State<HomeViewRoot> {
                   context,
                 ).onTap(currenIndex: value);
                 BlocProvider.of<BottomNavCubit>(context).currentIndex = value;
-                log("${BlocProvider.of<BottomNavCubit>(context).currentIndex}");
+                if (value == 1) {
+                  BlocProvider.of<GetFavoritsCubit>(context).getFavorits();
+                }
               },
 
               currentIndex: BlocProvider.of<BottomNavCubit>(
