@@ -21,8 +21,12 @@ jobs:
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.22.0'
+        flutter-version: '3.22.3'  # غيرتها لاصدار محدد
         channel: 'stable'
+        cache: true
+
+    - name: Flutter doctor
+      run: flutter doctor -v  # دي عشان نتأكد في اللوج
 
     - name: Get dependencies
       run: flutter pub get
@@ -37,4 +41,3 @@ jobs:
         serviceCredentialsFileContent: ${{ secrets.FIREBASE_CREDENTIALS }}
         groups: testers
         file: build/app/outputs/flutter-apk/app-devel-release.apk
-        releaseNotes: New build from dev branch
