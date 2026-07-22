@@ -148,22 +148,7 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AddProductToFavoritCubit, AddProductToFavoritState>(
-      listener: (context, state) {
-        if (state is AddProductToFavoritSucsece) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              backgroundColor: Colors.green,
-              content: Text(
-                state.addProductToFavoritModelResponse.message!,
-                style: AppStyles.style14().copyWith(color: Colors.white),
-              ),
-            ),
-          );
-          // تحديث قائمة المفضلات بعد الإضافة
-          // context.read<GetFavoritsCubit>().getFavorits();
-        }
-      },
+    return BlocBuilder<AddProductToFavoritCubit, AddProductToFavoritState>(
       builder: (context, state) {
         return GestureDetector(
           onTap: () {
