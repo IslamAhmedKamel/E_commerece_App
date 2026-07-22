@@ -23,10 +23,10 @@ class AllProductsList extends StatelessWidget {
           );
         } else if (state is GetAllProductsSucsecefull) {
           return SliverGrid.builder(
-            itemCount: 20,
+            itemCount: state.products.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 1 / 2.1,
+              childAspectRatio: 1 / 2,
               crossAxisSpacing: 15,
               mainAxisSpacing: 15,
             ),
