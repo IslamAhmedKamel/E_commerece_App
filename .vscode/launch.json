@@ -8,7 +8,7 @@
             "program": "lib/main_dev.dart",
             "args": [
                 "--flavor",
-                "devlopment",
+                "development" , // ✅ تصحيح: development وليس devlopment
                 "-t",
                 "lib/main_dev.dart"
             ]
