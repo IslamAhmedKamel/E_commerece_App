@@ -10,9 +10,8 @@ part 'get_favorits_state.dart';
 class GetFavoritsCubit extends Cubit<GetFavoritsState> {
   GetFavoritsCubit({required this._favoritRepo}) : super(GetFavoritsInitial());
   final FavoritRepo _favoritRepo;
-
-  // قائمة المنتجات المفضلة
-
+  int count = 0;
+  List<ProductModel> prods = [];
   Future<void> getFavorits() async {
     emit(GetFavoritsLoading());
     var result = await _favoritRepo.getFavorits(
@@ -26,6 +25,8 @@ class GetFavoritsCubit extends Cubit<GetFavoritsState> {
         emit(GetFavoritsFailur(errorMessage: failed.errorMessage));
       },
       (succese) {
+        prods = [...succese];
+        count = succese.length;
         emit(GetFavoritsSuceces(products: succese));
       },
     );

@@ -16,43 +16,51 @@ class FavoriteViewTab extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("Favorits Products ", style: AppStyles.style14()),
-                Badge(
-                  label: Text("2"),
-                  child: SvgPicture.asset(AppAssets.cartIcon),
-                ),
-              ],
-            ),
-            Gap(32.h),
-            BlocBuilder<GetFavoritsCubit, GetFavoritsState>(
-              builder: (context, state) {
-                if (state is GetFavoritsSuceces) {
-                  return Expanded(
-                    child: ListView.builder(
-                      itemCount: state.products.length,
-                      itemBuilder: (context, index) =>
-                          FavoritProduct(productModel: state.products[index]),
-                    ),
-                  );
-                } else if (state is GetFavoritsFailur) {
-                  return Expanded(
-                    child: Center(child: Text(state.errorMessage)),
-                  );
-                } else if (state is GetFavoritsLoading) {
-                  return Expanded(
-                    child: Center(child: CircularProgressIndicator()),
-                  );
-                } else {
-                  return Gap(0.0);
-                }
-              },
-            ),
-          ],
+        child: BlocBuilder<GetFavoritsCubit, GetFavoritsState>(
+          builder: (BuildContext context, GetFavoritsState state) {
+            if (state is GetFavoritsSuceces) {
+              return Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Favorits Products ", style: AppStyles.style14()),
+                      Badge(
+                        label: Text(
+                          "${BlocProvider.of<GetFavoritsCubit>(context).count}",
+                        ),
+                        child: SvgPicture.asset(AppAssets.cartIcon),
+                      ),
+                    ],
+                  ),
+                  Gap(32.h),
+
+                  Expanded(
+                    child: state.products.isNotEmpty
+                        ? ListView.builder(
+                            itemCount: state.products.length,
+                            itemBuilder: (context, index) => FavoritProduct(
+                              productModel: state.products[index],
+                            ),
+                          )
+                        : Center(
+                            child: Text(
+                              "There is not a favorit yet , please try add",
+                            ),
+                          ),
+                  ),
+                ],
+              );
+            } else if (state is GetFavoritsFailur) {
+              return Expanded(child: Center(child: Text(state.errorMessage)));
+            } else if (state is GetFavoritsLoading) {
+              return Expanded(
+                child: Center(child: CircularProgressIndicator()),
+              );
+            } else {
+              return Gap(0.0);
+            }
+          },
         ),
       ),
     );

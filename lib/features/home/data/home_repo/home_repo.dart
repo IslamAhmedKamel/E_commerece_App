@@ -7,7 +7,8 @@ import 'package:e_commerece_app/features/home/data/models/product_model.dart';
 abstract class HomeRepo {
   Future<Either<Failure, List<CategoryModel>>> getAllCategory();
   Future<Either<Failure, List<ProductModel>>> getAllProducts();
-  Future<Either<Failure, AddProductToFavoritModel>> addProductToFavorit({
+  Future<Either<Failure, AddProductToFavoritModelResponse>>
+  addProductToFavorit({
     required Map<String, dynamic> data,
     Map<String, dynamic>? headers,
   });

@@ -51,7 +51,8 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, AddProductToFavoritModel>> addProductToFavorit({
+  Future<Either<Failure, AddProductToFavoritModelResponse>>
+  addProductToFavorit({
     required Map<String, dynamic> data,
     Map<String, dynamic>? headers,
   }) async {
@@ -61,7 +62,8 @@ class HomeRepoImpl extends HomeRepo {
         data: data,
         headers: headers,
       );
-      AddProductToFavoritModel product=AddProductToFavoritModel.fromJson(reponse);
+      AddProductToFavoritModelResponse product =
+          AddProductToFavoritModelResponse.fromJson(reponse);
       return right(product);
     } on Exception catch (e) {
       if (e is DioException) {

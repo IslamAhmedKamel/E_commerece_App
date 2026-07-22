@@ -22,7 +22,6 @@ class HomeViewRoot extends StatefulWidget {
 class _HomeViewRootState extends State<HomeViewRoot> {
   @override
   void initState() {
-    BlocProvider.of<GetFavoritsCubit>(context).getFavorits();
     super.initState();
     BlocProvider.of<GetAllCategoriesCubit>(context).getData();
     BlocProvider.of<GetAllProductsCubit>(context).getData();
