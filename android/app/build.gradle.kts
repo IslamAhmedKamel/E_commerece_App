@@ -5,6 +5,24 @@ plugins {
 }
 
 android {
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+    flavorDimensions += "default"
+    productFlavors {
+        create("devlopment") {
+            dimension = "default"
+            applicationIdSuffix = ".dev"
+            manifestPlaceholders["appName"] = "متجري Dev"
+        }
+        create("production") {
+            dimension = "default"
+            applicationIdSuffix = ""
+            manifestPlaceholders["appName"] = "متجري"
+        }
+    }
     namespace = "com.example.e_commerece_app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
