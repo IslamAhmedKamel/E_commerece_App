@@ -21,10 +21,10 @@ jobs:
     - name: Install Flutter 3.24.5
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.24.5'  # ده فيه Dart 3.5.4
+        flutter-version: '3.27.0'  # كان 3.24.5
         channel: 'stable'
         cache: true
-        cache-key: 'flutter-3.24.5'
+        cache-key: 'flutter-3.27.0'
 
     - name: Flutter doctor
       run: flutter doctor -v
