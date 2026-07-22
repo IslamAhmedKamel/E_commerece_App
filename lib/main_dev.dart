@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
-  // Bloc.observer = Observe();
+  
+
+
+  //test firebase
   runApp(const EcommereceApp());
 }
