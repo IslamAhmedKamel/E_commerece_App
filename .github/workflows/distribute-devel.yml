@@ -1,45 +1,47 @@
-name: Distribute Devel to Firebase
+name: Build and Distribute Devel
 
 on:
   push:
-    branches: [ "dev" ]
+    branches:
+      - dev  # هيشتغل لما تعمل push على dev
 
 jobs:
   build-and-distribute:
+    name: build-and-distribute
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Setup Java
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '17'
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
 
-    - name: Install Flutter 3.24.5
-      uses: subosito/flutter-action@v2
-      with:
-        flutter-version: '3.32.8'  # اخر stable
-        channel: 'stable'
-        cache: true
-        cache-key: 'flutter-3.32.8'
+      - name: Install Flutter 3.32.8
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.8'  # Dart 3.9.2
+          channel: 'stable'
+          cache: true
+          cache-key: 'flutter-3.32.8'
 
-    - name: Flutter doctor
-      run: flutter doctor -v
+      - name: Flutter doctor
+        run: flutter doctor -v
 
-    - name: Get dependencies
-      run: flutter pub get
+      - name: Get dependencies
+        run: flutter pub get
 
-    - name: Build APK devel
-      run: flutter build apk --flavor devel --release
+      - name: Build APK devel
+        run: flutter build apk --flavor devel --release
 
-    - name: Upload to Firebase App Distribution
-      uses: wzieba/Firebase-Distribution-Github-Action@v1
-      with:
-        appId: 1:696150681893:android:ec1c6189b039a0630192cc
-        serviceCredentialsFileContent: ${{ secrets.FIREBASE_CREDENTIALS }}
-        groups: testers
-        file: build/app/outputs/flutter-apk/app-devel-release.apk
-        releaseNotes: "New dev build - Flutter 3.24.5"
+      - name: Upload to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID_DEVEL }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_CREDENTIALS }}
+          groups: testers
+          file: build/app/outputs/flutter-apk/app-devel-release.apk
+          releaseNotes: "New build from commit ${{ github.sha }}"
