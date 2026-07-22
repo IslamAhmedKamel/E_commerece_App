@@ -6,8 +6,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
   
-
-
+  // اخر اختبار
   //test firebase
   runApp(const EcommereceApp());
 }
