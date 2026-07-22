@@ -61,10 +61,9 @@ class _OnboardingViewState extends State<OnboardingView> {
                             });
                           },
                         ),
-
                   CustomSmoothPageIndicator(
                     count: onboardingList.length,
-                    pageController: _controller,
+                    _pageController: _controller,
                   ),
                   currentPage == onboardingList.length - 1
                       ? CustomInkTextOnboarding(

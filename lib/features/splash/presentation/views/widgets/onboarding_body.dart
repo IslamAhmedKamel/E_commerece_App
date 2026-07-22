@@ -10,8 +10,8 @@ import 'package:e_commerece_app/features/splash/data/onboarding_model.dart';
 class OnboardingBody extends StatelessWidget {
   const OnboardingBody({
     super.key,
-    this._pageController, this.onPageChanged, required this.onboardingList,
-  });
+    PageController? pageController, this.onPageChanged, required this.onboardingList,
+  }) : _pageController = pageController;
 final PageController? _pageController;
 final void Function(int)? onPageChanged;
 final List<OnboardingModel> onboardingList;
