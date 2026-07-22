@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "696150681893",
+    "project_id": "e-commece-f9132",
+    "storage_bucket": "e-commece-f9132.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696150681893:android:ec1c6189b039a0630192cc",
+        "android_client_info": {
+          "package_name": "com.example.e_commerece_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdaqQnBmA7l_nCapA_s1mO23CsviqQXOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696150681893:android:القيمة_الجديدة_من_فيسبوك",
+        "android_client_info": {
+          "package_name": "com.example.e_commerece_app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "مفتاح_API_الجديد_من_فيسبوك"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
