@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"flutter":{"platforms":{"android":{"default":{"projectId":"e-commece-f9132","appId":"1:696150681893:android:ec1c6189b039a0630192cc","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"e-commece-f9132","configurations":{"android":"1:696150681893:android:ec1c6189b039a0630192cc","ios":"1:696150681893:ios:186d68170a2184f90192cc"}}}}}}
+=======
+{"flutter":{"platforms":{"android":{"default":{"projectId":"e-commerece-app-5095e","appId":"1:551892598805:android:3577a81f23222ffa454e1c","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"e-commerece-app-5095e","configurations":{"android":"1:551892598805:android:3577a81f23222ffa454e1c","ios":"1:551892598805:ios:0be7529a791f1212454e1c"}}}}}}
+>>>>>>> e519dd493f71a687c06515a214bf2f853b81aa3b

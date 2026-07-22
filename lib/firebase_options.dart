@@ -50,6 +50,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
+<<<<<<< HEAD
     apiKey: 'AIzaSyBdaqQnBmA7l_nCapA_s1mO23CsviqQXOM',
     appId: '1:696150681893:android:ec1c6189b039a0630192cc',
     messagingSenderId: '696150681893',
@@ -63,6 +64,21 @@ class DefaultFirebaseOptions {
     messagingSenderId: '696150681893',
     projectId: 'e-commece-f9132',
     storageBucket: 'e-commece-f9132.firebasestorage.app',
+=======
+    apiKey: 'AIzaSyB7LC5Q504lAsZ8Pjzzxmjz4WVJTEY1RQ4',
+    appId: '1:551892598805:android:3577a81f23222ffa454e1c',
+    messagingSenderId: '551892598805',
+    projectId: 'e-commerece-app-5095e',
+    storageBucket: 'e-commerece-app-5095e.firebasestorage.app',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyCbCvdLwgj3WsvBD1hy_HSmqQl7TN1qmLQ',
+    appId: '1:551892598805:ios:0be7529a791f1212454e1c',
+    messagingSenderId: '551892598805',
+    projectId: 'e-commerece-app-5095e',
+    storageBucket: 'e-commerece-app-5095e.firebasestorage.app',
+>>>>>>> e519dd493f71a687c06515a214bf2f853b81aa3b
     iosBundleId: 'com.example.eCommereceApp',
   );
 }

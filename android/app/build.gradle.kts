@@ -15,7 +15,11 @@ android {
     }
     flavorDimensions += "default"
     productFlavors {
+<<<<<<< HEAD
         create("devel") {
+=======
+        create("development") {
+>>>>>>> e519dd493f71a687c06515a214bf2f853b81aa3b
             dimension = "default"
             applicationIdSuffix = ".dev"
             manifestPlaceholders["appName"] = "متجري Dev"
