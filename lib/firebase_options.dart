@@ -5,21 +5,11 @@ import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
-///
-/// Example:
-/// ```dart
-/// import 'firebase_options.dart';
-/// // ...
-/// await Firebase.initializeApp(
-///   options: DefaultFirebaseOptions.currentPlatform,
-/// );
-/// ```
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
       throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
+        'DefaultFirebaseOptions have not been configured for web',
       );
     }
     switch (defaultTargetPlatform) {
@@ -27,21 +17,6 @@ class DefaultFirebaseOptions {
         return android;
       case TargetPlatform.iOS:
         return ios;
-      case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
-      case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
-      case TargetPlatform.linux:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
@@ -50,7 +25,6 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-<<<<<<< HEAD
     apiKey: 'AIzaSyBdaqQnBmA7l_nCapA_s1mO23CsviqQXOM',
     appId: '1:696150681893:android:ec1c6189b039a0630192cc',
     messagingSenderId: '696150681893',
@@ -64,21 +38,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '696150681893',
     projectId: 'e-commece-f9132',
     storageBucket: 'e-commece-f9132.firebasestorage.app',
-=======
-    apiKey: 'AIzaSyB7LC5Q504lAsZ8Pjzzxmjz4WVJTEY1RQ4',
-    appId: '1:551892598805:android:3577a81f23222ffa454e1c',
-    messagingSenderId: '551892598805',
-    projectId: 'e-commerece-app-5095e',
-    storageBucket: 'e-commerece-app-5095e.firebasestorage.app',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCbCvdLwgj3WsvBD1hy_HSmqQl7TN1qmLQ',
-    appId: '1:551892598805:ios:0be7529a791f1212454e1c',
-    messagingSenderId: '551892598805',
-    projectId: 'e-commerece-app-5095e',
-    storageBucket: 'e-commerece-app-5095e.firebasestorage.app',
->>>>>>> e519dd493f71a687c06515a214bf2f853b81aa3b
     iosBundleId: 'com.example.eCommereceApp',
   );
 }
