@@ -18,12 +18,13 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Setup Flutter
+    - name: Install Flutter 3.24.5
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.22.3'
+        flutter-version: '3.24.5'  # ده فيه Dart 3.5.4
         channel: 'stable'
         cache: true
+        cache-key: 'flutter-3.24.5'
 
     - name: Flutter doctor
       run: flutter doctor -v
@@ -41,4 +42,4 @@ jobs:
         serviceCredentialsFileContent: ${{ secrets.FIREBASE_CREDENTIALS }}
         groups: testers
         file: build/app/outputs/flutter-apk/app-devel-release.apk
-        releaseNotes: "New dev build - Flutter 3.22.3"
+        releaseNotes: "New dev build - Flutter 3.24.5"
