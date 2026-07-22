@@ -47,6 +47,7 @@ dependencies:
   flutter_image_slideshow: ^0.1.6
   readmore: ^3.0.0
   jwt_decoder: ^2.0.1
+  firebase_core: ^4.12.1
 
 dev_dependencies:
   flutter_test:
